@@ -30,7 +30,6 @@ db.ville = require("./ville.model")(sequelize, Sequelize);
 db.commentaire = require("./commentaire.model")(sequelize, Sequelize);
 db.continent = require("./continent.model")(sequelize, Sequelize);
 db.etat = require("./etat.model")(sequelize, Sequelize);
-db.favoris = require("./favoris.model")(sequelize, Sequelize);
 db.role = require("./role.model")(sequelize, Sequelize);
 db.universite = require("./universite.model")(sequelize, Sequelize);
 db.user = require("./user.model")(sequelize, Sequelize);
@@ -65,6 +64,19 @@ db.categorie.belongsToMany(db.article, {
 });
 
 db.CATEGORIE = ["restauration","lieu", "activité", "hébergement"];
+
+//relation Favoris
+db.article.belongsToMany(db.user, {
+  through: "favoris",
+  foreignKey: "articleId",
+  otherKey: "userId"
+});
+
+db.user.belongsToMany(db.article, {
+  through: "favoris",
+  foreignKey: "userId",
+  otherKey: "articleId"
+});
 
 //relation entre continent et pays
 db.continent.belongsToMany(db.etat, {

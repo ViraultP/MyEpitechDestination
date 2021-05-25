@@ -19,6 +19,7 @@ require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/article.routes')(app);
 
+
 db.sequelize.sync();
 
 // simple route

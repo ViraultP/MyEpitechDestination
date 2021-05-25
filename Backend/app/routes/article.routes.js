@@ -12,24 +12,26 @@ module.exports = function(app) {
 // Créer un Article
 app.post("/api/articles", controller.createArticle);
 
-//Récuperer tous les articles
+//Récuperer tous les articles et leur commentaires
+//app.get("/api/articles", controller.findAllArticle);
 
-// Récuperer un article par son id
+// Récuperer un article par son id avec ses commentaires.
+app.get("/api/articles/:id", controller.findOne);
 
 // Update a commentaire with id
+app.put("/api/articles/:id", controller.updateArticle);
 
-// Supprimer un article par son id
+// Supprimer un article par son id avec ses commentaires associés
+app.delete("/api/articles/:id", controller.deleteOneArticle);
 
 // --------------------------------------------------------------------------------------
  
 // Créer un nouveau commentaire
- 
-//Récupérer un commentaire par son id
+app.post("/api/commentaires", controller.createCommentaire);
  
 // Update a commentaire with id
+app.put("/api/commentaires/:id", controller.updateCommentaire);
  
 // Supprimer un commentaire par son id
-
-//Récuperer tous les commentaires
-
+app.delete("/api/commentaires/:id", controller.deleteCommentaire);
 }
