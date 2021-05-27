@@ -18,7 +18,7 @@ cd myepitechdestination-front
 npm run serve
 ```
 
-## How to use
+## How to use ?
 ```
 cd myepitechdestination-front
 npm install
