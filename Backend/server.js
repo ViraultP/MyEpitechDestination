@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-
+const {searchh} = require("./app/routes/search.routes");
 const app = express();
 
 app.use(express.json())
@@ -18,6 +18,7 @@ const Role = db.role;
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/article.routes')(app);
+require('./app/routes/search.routes')(app);
 
 
 db.sequelize.sync();
