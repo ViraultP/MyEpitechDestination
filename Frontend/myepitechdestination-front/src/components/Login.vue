@@ -1,39 +1,53 @@
 <template>
-  <div class="col-md-12">
-    <div class="card card-container">
+  <div class="container">
+    <div class="row">
       <img
         id="profile-img"
         class="profile-img-card"
       />
-      <Form @submit="handleLogin" :validation-schema="schema">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <Field name="email" type="text" class="form-control" />
-          <ErrorMessage name="email" class="error-feedback" />
-        </div>
-        <div class="form-group">
-          <label for="mot_de_passe">Mot de passe</label>
-          <Field name="mot_de_passe" type="password" class="form-control" />
-          <ErrorMessage name="mot_de_passe" class="error-feedback" />
-        </div>
+      <div class="col-md d-none d-lg-block">
+        <img src="../assets/image-register-black.jpg" alt="register illustration" weight="auto">
+      </div>
 
-        <div class="form-group">
-          <button class="btn btn-primary btn-block" :disabled="loading">
-            <span
-              v-show="loading"
-              class="spinner-border spinner-border-sm"
-            ></span>
-            <span>Login</span>
-          </button>
-        </div>
-
-        <div class="form-group">
-          <div v-if="message" class="alert alert-danger" role="alert">
-            {{ message }}
+      <div class="col-md">
+        <p class="register">Vous n'êtes pas membre ? <a href="/register">S'inscrire</a></p>
+        <div class="info">
+          <h2>Login</h2>
+        
+        <Form @submit="handleLogin" :validation-schema="schema">
+          
+          <div class="form-group">
+            <label for="email" class="title">Email</label>
+            <Field name="email" type="text" class="form-control" />
+            <ErrorMessage name="email" class="error-feedback" />
           </div>
+
+          <div class="form-group">
+            <label for="mot_de_passe" class="title">Mot de passe</label>
+            <Field name="mot_de_passe" type="password" class="form-control" />
+            <ErrorMessage name="mot_de_passe" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" :disabled="loading">
+              <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+              <span>Login</span>
+            </button>
+          </div>
+
+          <div class="form-group">
+            <div v-if="message" class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          </div>
+
+        </Form>
         </div>
-      </Form>
-    </div>
+      </div>
+      </div>
   </div>
 </template>
 
@@ -92,3 +106,72 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+* {
+    font-family: Lato;
+} 
+
+img{
+ width: 100%;
+height: auto;
+}
+
+.register{
+    display: block;
+    float: right
+}
+
+.register a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #278867;
+}
+
+.register a:hover{
+    border-bottom: 2px solid #278867;
+}
+
+.infos{
+    margin-top: 70px;
+    margin-left: 20px;
+    display: block;
+    text-align: left;
+}
+
+h2{
+    color: #278867;
+    font-size: 2.3em;
+    margin-bottom: 60px;
+}
+
+.title{
+    margin-top: 10px;
+    font-weight: lighter;
+    font-size: 1.4em;
+}
+
+input{
+    margin: 10px 0;
+    border-bottom: 1px solid black;
+    padding: 6px 6px;
+    width: 90%;
+}
+
+.input:hover{
+    border-bottom: 1px solid black;
+}
+button{
+    margin-top: 40px;
+    padding: 10px 30px;
+    text-align: initial;
+    background-color: #278867;
+    border-radius: 6px;
+}
+
+button a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 19px;
+}
+</style>
