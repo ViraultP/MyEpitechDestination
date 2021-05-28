@@ -8,17 +8,17 @@ exports.create = (req, res) => {
     // Validate request
     if (!req.body.email) {
         res.status(400).send({
-            message: "Email can not be empty"
+            message: "L'email ne peut pas être vide"
         });
         return;
     };
 
     // Create a user
     const user = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
+        nom: req.body.nom,
+        prénom: req.body.prénom,
         email: req.body.email,
-        password: req.body.password,
+        mot_de_passe: req.body.mot_de_passe,
     };
 
     // Save user in the database

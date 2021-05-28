@@ -11,28 +11,28 @@ var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    nom: req.body.nom,
+    prénom: req.body.prénom,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
+    mot_de_passe: bcrypt.hashSync(req.body.mot_de_passe, 8)
   })
     .then(user => {
       if (req.body.roles) {
         Role.findAll({
           where: {
-            name: {
+            nom: {
               [Op.or]: req.body.roles
             }
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: "Votre enregistrement est un succès :)!" });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
-          res.send({ message: "User was registered successfully!" });
+          res.send({ message: "Utilisateur enregistré avec succès !" });
         });
       }
     })
@@ -53,8 +53,8 @@ exports.signin = (req, res) => {
       }
 
       var passwordIsValid = bcrypt.compareSync(
-        req.body.password,
-        user.password
+        req.body.mot_de_passe,
+        user.mot_de_passe
       );
 
       if (!passwordIsValid) {
@@ -71,12 +71,12 @@ exports.signin = (req, res) => {
       var authorities = [];
       user.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
-          authorities.push("ROLE_" + roles[i].name.toUpperCase());
+          authorities.push("ROLE_" + roles[i].nom.toUpperCase());
         }
         res.status(200).send({
           id: user.id,
-          firstname: user.firstname,
-          lastname: user.lastname,
+          nom: user.nom,
+          prénom: user.prénom,
           email: user.email,
           roles: authorities,
           accessToken: token
