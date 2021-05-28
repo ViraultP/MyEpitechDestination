@@ -1,14 +1,10 @@
-import '@babel/polyfill'
-import 'mutationobserver-shim'
-import Vue from 'vue'
-import './plugins/bootstrap-vue'
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
 import { createApp } from "vue";
 import store from "./store";
-import { FontAwesomeIcon } from './plugins/font-awesome'
-
-Vue.config.productionTip = false
+import { FontAwesomeIcon } from './plugins/font-awesome';
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 createApp(App)
   .use(router)
