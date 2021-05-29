@@ -3,7 +3,7 @@ import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import Contact from "./components/Contact.vue";
-
+import Test from "./components/Test.vue";
 
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -30,6 +30,10 @@ const routes = [
   {
     path: "/contact",
     component: Contact,
+  },
+  {
+    path: "/test",
+    component: Test,
   },
   {
     path: "/profile",

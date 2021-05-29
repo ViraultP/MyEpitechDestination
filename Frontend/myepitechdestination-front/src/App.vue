@@ -3,6 +3,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href="/" class="navbar-brand">My Epitech Destination Test </a>
       <a href="/contact" class="navbar-brand">Contact </a>
+      <a href="/test" class="navbar-brand">Test </a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/home" class="nav-link">
