@@ -74,3 +74,9 @@ export default {
   }
 };
 </script>
+
+<style>
+body{
+  font-family: 'Lato';
+}
+</style>

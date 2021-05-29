@@ -5,30 +5,30 @@
         id="profile-img"
         class="profile-img-card"
       />
+
       <div class="col-md d-none d-lg-block">
-        <img src="../assets/image-register-black.jpg" alt="register illustration" weight="auto">
+        <img src="../assets/image-register-write2.jpg" alt="register illustration" weight="auto">
       </div>
 
-      <div class="col-md">
-        <p class="register">Vous n'êtes pas membre ? <a href="/register">S'inscrire</a></p>
+      <div class="col-md" id="container2"> 
+        
+        <p class="register">Vous n'êtes pas membre ?  <a href="/register"><button>S'inscrire</button></a></p>
         <div class="info">
-          <h2>Login</h2>
+          <h2>Connectez-vous</h2>
         
         <Form @submit="handleLogin" :validation-schema="schema">
           
           <div class="form-group">
-            <label for="email" class="title">Email</label>
-            <Field name="email" type="text" class="form-control" />
+            <Field name="email" type="text" placeholder="Email" class="form-control" />
             <ErrorMessage name="email" class="error-feedback" />
           </div>
 
           <div class="form-group">
-            <label for="mot_de_passe" class="title">Mot de passe</label>
-            <Field name="mot_de_passe" type="password" class="form-control" />
+            <Field name="mot_de_passe" type="password"  placeholder="Mot de passe" class="form-control" />
             <ErrorMessage name="mot_de_passe" class="error-feedback" />
           </div>
 
-          <div class="form-group">
+          <div class="button">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
@@ -110,7 +110,22 @@ export default {
 <style scoped>
 * {
     font-family: Lato;
+     
 } 
+
+body{ background-color: red;}
+
+.container{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 30px 10px;
+  border-radius: 15px;
+  box-shadow: 0 10px 50px -10px #d6d6d6;
+}
 
 img{
  width: 100%;
@@ -119,59 +134,93 @@ height: auto;
 
 .register{
     display: block;
-    float: right
+    float: right;
+    padding-right: 10px;
+}
+
+.register button{
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    border: 2px solid #85c4af;
+    background-color: transparent;
+    color: #85c4af;
+    outline: none;
 }
 
 .register a{
     text-decoration: none;
-    font-weight: bold;
-    color: #278867;
+    font-family: 'Lato';
+    font-size: 0.9em;
+    color: #85c4af;
 }
 
-.register a:hover{
-    border-bottom: 2px solid #278867;
+.register button:hover{
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    border: none 2px solid ;
+    background-color: #85c4af;
+    color: white;
+    outline: none;
 }
 
-.infos{
-    margin-top: 70px;
-    margin-left: 20px;
-    display: block;
-    text-align: left;
+#container2{
+  width: 450px;
+  padding: 5px;
 }
 
-h2{
-    color: #278867;
-    font-size: 2.3em;
+.info h2{
+    font-family:'Bebas Neue', cursive;
+    font-size: 2.2em;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.info input{
+    width: 87%;
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #e4e4ec;
+    border-radius: 0;
+    transition: 0.2s;
     margin-bottom: 60px;
 }
 
-.title{
-    margin-top: 10px;
-    font-weight: lighter;
-    font-size: 1.4em;
+.info input:hover{
+    border-bottom: 2px solid #85c4af;
 }
 
-input{
-    margin: 10px 0;
-    border-bottom: 1px solid black;
-    padding: 6px 6px;
-    width: 90%;
+.button{
+  text-align: center;
 }
 
-.input:hover{
-    border-bottom: 1px solid black;
-}
-button{
-    margin-top: 40px;
-    padding: 10px 30px;
-    text-align: initial;
-    background-color: #278867;
-    border-radius: 6px;
+.info button {
+    width: 190px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: #85c4af;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    outline: none;
+    margin: 0 auto;
 }
 
-button a{
+.info button a{
     text-decoration: none;
     color: #ffffff;
     font-size: 19px;
 }
+
+.info button:hover{
+  border: 2px solid #85c4af;
+  background-color: transparent;
+  color: #85c4af;
+}
+
 </style>

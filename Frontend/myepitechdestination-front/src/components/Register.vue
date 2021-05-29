@@ -1,49 +1,54 @@
 <template>
   <div class="container">
+
     <div class="row">
+
       <div class="col-md d-none d-lg-block">
-        <img src="../assets/image-register-black.jpg" alt="register illustration" weight="auto">
+        <img src="../assets/image-register-write2.jpg" alt="register illustration" weight="auto">
       </div>
 
-      <div class="col-md">
-        <p class="register">Déjà membre ? <a href="/login">Se connecter</a></p>
+      <div class="col-md" id="container2">
+      
+      <p class="register">Déjà membre ? <a href="/login"><button>Se connecter</button></a></p>
+        
         <div class="info">
           <h2>Créer un compte</h2>
+
         <Form @submit="handleRegister" :validation-schema="schema">
           <div v-if="!successful">
-
+            
+            <form class="form">
               <div class="form-group">
-                <label for="nom" class="title">Nom</label>
-                <Field name="nom" type="text" class="form-control" />
+                <Field name="nom" type="text" placeholder="Nom" class="form-control" />
                 <ErrorMessage name="nom" class="error-feedback" />
               </div>
 
               <div class="form-group">
-                <label for="prénom" class="title">Prénom</label>
-                <Field name="prénom" type="text" class="form-control" />
+                <Field name="prénom" type="text" placeholder="Prénom" class="form-control" />
                 <ErrorMessage name="prénom" class="error-feedback" />
               </div>
 
               <div class="form-group">
-                <label for="email" class="title">Email</label>
-                <Field name="email" type="email" class="form-control" />
+                <Field name="email" type="email" placeholder="Email" class="form-control" />
                 <ErrorMessage name="email" class="error-feedback" />
               </div>
 
               <div class="form-group">
-                <label for="mot_de_passe" class="title">Mot de passe</label>
-                <Field name="mot_de_passe" type="password" class="form-control" />
+                <Field name="mot_de_passe" type="password" placeholder="Mot de passe" class="form-control" />
                 <ErrorMessage name="mot_de_passe" class="error-feedback" />
               </div>
+            </form>
 
-              <div class="form-group">
-                <button :disabled="loading">
+            <div class="button">
+             <a href="#"><button :disabled="loading">
                   <span
                     v-show="loading"
                   ></span>
-                  <a href="#">S'enregistrer</a> 
-                </button>
-              </div>
+                 S'enregistrer
+                </button></a> 
+            </div>  
+              
+            
 
             </div>
           </Form>
@@ -140,66 +145,115 @@ export default {
     font-family: Lato;
 } 
 
-img{
+.container{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 30px 10px;
+  border-radius: 15px;
+  box-shadow: 0 10px 50px -10px #d6d6d6;
+}
+
+.container img{
  width: 100%;
 height: auto;
 }
 
 .register{
     display: block;
-    float: right
+    float: right;
+    padding-right: 10px;
 }
 
+.register button{
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    border: 2px solid #85c4af;
+    background-color: transparent;
+    color: #85c4af;
+    outline: none;
+}
 .register a{
     text-decoration: none;
-    font-weight: bold;
-    color: #278867;
+    font-family: 'Lato';
+    font-size: 0.9em;
+    color: #85c4af;
+}
+.register button:hover{
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    border: none 2px solid ;
+    background-color: #85c4af;
+    color: white;
+    outline: none;
 }
 
-.register a:hover{
-    border-bottom: 2px solid #278867;
+
+
+#container2{
+  width: 450px;
+  padding: 5px;
 }
 
-.infos{
-    margin-top: 70px;
-    margin-left: 20px;
-    display: block;
-    text-align: left;
+.info h2{
+    font-family:'Bebas Neue', cursive;
+    font-size: 2.2em;
+    text-align: center;
+    margin: 50px 0;
 }
 
-h2{
-    color: #278867;
-    font-size: 2.3em;
+.info input{
+    width: 87%;
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #e4e4ec;
+    border-radius: 0;
+    transition: 0.2s;
     margin-bottom: 60px;
 }
 
-.title{
-    margin-top: 10px;
-    font-weight: lighter;
-    font-size: 1.4em;
+.info input:hover{
+    border-bottom: 2px solid #85c4af;
 }
 
-input{
-    margin: 10px 0;
-    border-bottom: 1px solid black;
-    padding: 6px 6px;
-    width: 90%;
+.button{
+  text-align: center;
 }
 
-.input:hover{
-    border-bottom: 1px solid black;
-}
-button{
-    margin-top: 40px;
-    padding: 10px 30px;
-    text-align: initial;
-    background-color: #278867;
-    border-radius: 6px;
+.info button {
+    width: 190px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: #85c4af;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    outline: none;
+    margin: 0 auto;
 }
 
-button a{
+.info button a{
     text-decoration: none;
     color: #ffffff;
     font-size: 19px;
+}
+
+.info button a:hover{
+    color: #85c4af;
+}
+
+.info button:hover{
+  border: 2px solid #85c4af;
+  background-color: transparent;
+  color: #85c4af;
 }
 </style>
