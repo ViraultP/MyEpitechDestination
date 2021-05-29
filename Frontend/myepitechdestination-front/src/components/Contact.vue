@@ -1,12 +1,39 @@
 <template>
-    <div>
+    <div class="contact_container">
+        <div class="row all_contact">
+            <h1>Conctater Nous</h1>
+            <div class="row all_info">
+                <div class="col-md contact_infos">
 
-        <div class="header">
+                    <button id="show1"><i class="fa fa-map-marker fa-1x" aria-hidden="true"></i></button>
+                    <p class="menu1">40 Boulevard de la marquette, Toulouse 31 000</p>
+                            
+                </div>
+
+                <div class="col-md contact_infos">
+                    <button id="show2"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></button> 
+                    <p class="menu2"><a href="mailto:toulouse@epitech.eu">contact@my-destination-epitech.eu</a></p>
+                    <p class="menu2"><a href="mailto:toulouse@epitech.eu">toulouse@epitech.eu</a></p>
+                       
+                </div>
+
+                <div class="col-md contact_infos">
+                    <button id="show3"><i class="fa fa-phone fa-1x" aria-hidden="true"></i></button>
+                    <p class="menu3">01 44 08 00 15</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <p>test</p>
+            </div>
+        </div>
+
+        <!-- <div class="header">
             <div class="row">
                 <div class="col-md contact">
                     <h1>Contactez - Nous</h1>
                         <div class="col-md contact_infos">
-                            <button id="show1"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></button>
+                            <button id="show1"><i class="fa fa-map-marker fa-1x" aria-hidden="true"></i></button>
                             
                                 <p class="menu1">40 Boulevard de la marquette</p>
                                 <p class="menu1">Toulouse</p>
@@ -15,7 +42,7 @@
                         </div>
 
                     <div class="col-md contact_infos">
-                        <button id="show2"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></button>
+                        <button id="show2"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></button>
                         
                             <p class="menu2"><a href="mailto:toulouse@epitech.eu">contact@my-destination-epitech.eu</a></p>
                             <p class="menu2"><a href="mailto:toulouse@epitech.eu">toulouse@epitech.eu</a></p>
@@ -23,7 +50,7 @@
                     </div>
 
                     <div class="col-md contact_infos">
-                    <button id="show3"><i class="fa fa-phone fa-2x" aria-hidden="true"></i></button>
+                    <button id="show3"><i class="fa fa-phone fa-1x" aria-hidden="true"></i></button>
                         <p class="menu3">01 44 08 00 15</p>
                     </div>
                 </div>
@@ -34,7 +61,7 @@
 
             </div>
                 
-        </div>
+        </div> -->
 
         <div class="container contact_dev">
             <div class="contact_dev_image">
@@ -81,13 +108,13 @@ import $ from "jquery";
 $(document).ready ( function () 
 {
     $('#show1').click ( function () {
-    $('.menu1').toggle();
+    $('.menu1').slideDown();
     });
     $('#show2').click ( function () {
-    $('.menu2').toggle();
+    $('.menu2').slideDown();
     });
     $('#show3').click ( function () {
-    $('.menu3').toggle();
+    $('.menu3').slideDown();
     });
 });
 
@@ -95,66 +122,84 @@ $(document).ready ( function ()
 
 <style scoped>
 
-.contact img{
+.contact_container{
+     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 30px 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 50px -10px #d6d6d6;
+}
+/* .contact img{
     size: cover;
     height: 500px;
     width: 500px;
 
-}
+} */
 /*  */
-.header{
-    text-align: center;
-    border: 1px solid black;
+
+.all_contact {
+    height: 100%;
+    width: 100%;
+    background-image: url('../assets/contact_plane.jpg');
+    background-size: cover;
+    
 }
 
-
-/* Contactez - Nous */
-.contact h1{
+.all_contact h1{
     font-family: 'Bebas Neue', cursive;
+    font-size: 2.5em;
+    color: black;
+    margin: 25px 0;
     text-align: center;
 }
-
-.contact h1{
-    font-size: 4.5em;
-    margin : 35px 0;
+.all_info {
+    border: 1px solid transparent;
+    margin: 0 auto;
 }
 
-/* Boutton icon et informations contact */
-
-.contact_infos {
-    /* margin: 10px 0 80px 0; */
-    display: block;
+.contact_infos{
+    border: 1px solid transparent;
     padding: 10px 0;
-
 }
+
 .contact_infos button{
-    height: 80px;
-    width: 80px;
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    background-color: #85C4AF;
+    background-color: #1B1B52;
     border: none;
 }
 .contact_infos button:hover{
-    background-color: #97cebc;
-}
-.contact_infos p{
-    font-family: 'Lato';
-    font-size: 1.3em;
-    margin: 10px 0 0 15px;
-    color: #85C4AF;
-    text-align: justify;
-    
-}
-.contact_infos p, a{
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    
+    background-color: #02737D;
 }
 
-/* .menu1, .menu2, .menu3{
-    display: none;
-} */
+.contact_infos .fa{
+    color: white;
+}
+
+.contact_infos p{
+    border: 1px solid transparent;
+    font-size: 1.1em;
+    /* background-color: transparent; */
+    border-radius: 10px;
+    padding: 10px;
+    /* box-shadow: 0 10px 50px -10px #d6d6d6; */
+}
+
+.contact_infos a{
+    text-decoration: none;
+    color: black;
+}
+
+.menu1, .menu2, .menu3{
+    display: none;;
+}
 
 /* ********************************* */
 
@@ -166,7 +211,7 @@ $(document).ready ( function ()
 
 .contact_dev_image{
     position: absolute;
-    z-index: -1;
+  
 }
 
 .contact_dev_title {
@@ -176,7 +221,7 @@ $(document).ready ( function ()
 }
 .contact_dev_title h1{
      font-family: 'Bebas Neue', cursive;
-     font-size: 3.2em;
+      font-size: 2.5em;
 }
 
 /* ********************************* */
@@ -199,7 +244,7 @@ $(document).ready ( function ()
 
 
 .box h1{
-     font-size: 2.2em;
+     font-size: 1.7em;
      text-align: center;
      color: #278867;
      margin-bottom: 20px;
@@ -207,11 +252,16 @@ $(document).ready ( function ()
 
 .box h4, p{
     text-align: center;
+    font-size: 1.1em;
 }
 
 .box a{
     text-decoration: none;
     font-weight: bold;
+    color: black;
+}
+
+.box a:hover{
     color: #85C4AF;
 }
 

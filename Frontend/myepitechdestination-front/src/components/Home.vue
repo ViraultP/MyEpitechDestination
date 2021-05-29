@@ -4,6 +4,7 @@
       <p>Components Home.vu</p>
       <h3>{{ content }}</h3>
     </header>
+    <router-link to="contact" class="nav-item r-item">Contact</router-link>
   </div>
 </template>
 
