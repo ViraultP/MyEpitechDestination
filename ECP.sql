@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 21 mai 2021 à 11:26
+-- Généré le : ven. 28 mai 2021 à 16:12
 -- Version du serveur :  8.0.25-0ubuntu0.20.10.1
 -- Version de PHP : 7.4.9
 
@@ -46,13 +46,20 @@ CREATE TABLE `articles` (
 
 CREATE TABLE `categories` (
   `id` int NOT NULL,
-  `restauration` varchar(255) DEFAULT NULL,
-  `lieu` varchar(255) DEFAULT NULL,
-  `activité` varchar(255) DEFAULT NULL,
-  `hébergement` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
+  `nom` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `nom`, `createdAt`, `updatedAt`) VALUES
+(1, 'restauration', '2021-05-28 16:10:10', '2021-05-28 16:10:10'),
+(2, 'lieu', '2021-05-28 16:10:10', '2021-05-28 16:10:10'),
+(3, 'activité', '2021-05-28 16:10:39', '2021-05-28 16:10:39'),
+(4, 'hébergement', '2021-05-28 16:10:39', '2021-05-28 16:10:39');
 
 -- --------------------------------------------------------
 
@@ -75,7 +82,7 @@ CREATE TABLE `categorie_articles` (
 
 CREATE TABLE `commentaires` (
   `id` int NOT NULL,
-  `nom` text,
+  `nom` varchar(255) DEFAULT NULL,
   `commentaire` text,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
@@ -115,11 +122,58 @@ INSERT INTO `continents` (`id`, `Continent`, `createdAt`, `updatedAt`) VALUES
 --
 
 CREATE TABLE `continent_etats` (
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `continentId` int NOT NULL,
   `etatId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `continent_etats`
+--
+
+INSERT INTO `continent_etats` (`createdAt`, `updatedAt`, `continentId`, `etatId`) VALUES
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 1, 1),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 2, 9),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 2, 26),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 2, 37),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 3, 4),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 3, 8),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 3, 10),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 3, 12),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 6),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 11),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 13),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 19),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 20),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 22),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 25),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 31),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 32),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 34),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 35),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 5, 36),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 2),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 3),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 7),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 14),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 15),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 16),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 17),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 18),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 21),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 23),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 24),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 27),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 28),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 29),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 30),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 31),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 33),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 36),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 38),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 6, 39),
+('2021-05-28 15:50:17', '2021-05-28 15:50:17', 7, 5);
 
 -- --------------------------------------------------------
 
@@ -178,19 +232,6 @@ INSERT INTO `etats` (`id`, `Pays`, `createdAt`, `updatedAt`) VALUES
 (37, 'USA', '2021-05-20 22:31:35', '2021-05-20 22:31:35'),
 (38, 'Ecosse', '2021-05-20 22:53:38', '2021-05-20 22:53:38'),
 (39, 'France', '2021-05-21 11:13:35', '2021-05-21 11:13:35');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `favoris`
---
-
-CREATE TABLE `favoris` (
-  `id` int NOT NULL,
-  `nom` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -342,6 +383,13 @@ CREATE TABLE `users` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `nom`, `prénom`, `email`, `mot_de_passe`, `createdAt`, `updatedAt`) VALUES
+(1, 'VIRAULT', 'Pauline', 'pauline.virault@epitech.eu', '$2a$08$cyHcKD.1gvYgu/oYNCswfuNDh9XFwB6NC.HKWz6Q519nfYo0hUgf.', '2021-05-28 12:34:27', '2021-05-28 12:34:27');
+
 -- --------------------------------------------------------
 
 --
@@ -354,6 +402,14 @@ CREATE TABLE `user_roles` (
   `roleId` int NOT NULL,
   `userId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `user_roles`
+--
+
+INSERT INTO `user_roles` (`createdAt`, `updatedAt`, `roleId`, `userId`) VALUES
+('2021-05-28 12:34:27', '2021-05-28 12:34:27', 1, 1),
+('2021-05-28 12:34:27', '2021-05-28 12:34:27', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -521,12 +577,6 @@ ALTER TABLE `etats`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `favoris`
---
-ALTER TABLE `favoris`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -570,12 +620,6 @@ ALTER TABLE `articles`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
@@ -603,7 +647,7 @@ ALTER TABLE `universites`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `villes`
