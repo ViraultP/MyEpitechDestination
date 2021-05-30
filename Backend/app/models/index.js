@@ -65,19 +65,6 @@ db.categorie.belongsToMany(db.article, {
 
 db.CATEGORIE = ["restauration","lieu", "activité", "hébergement"];
 
-//relation Favoris
-db.article.belongsToMany(db.user, {
-  through: "favoris",
-  foreignKey: "articleId",
-  otherKey: "userId"
-});
-
-db.user.belongsToMany(db.article, {
-  through: "favoris",
-  foreignKey: "userId",
-  otherKey: "articleId"
-});
-
 //relation entre continent et pays
 db.continent.belongsToMany(db.etat, {
   through: "continent_etats",
@@ -158,6 +145,13 @@ db.article.hasMany(db.commentaire, { as: "commentaire"});
 db.commentaire.belongsTo(db.article, {
   foreignKey: "articleId",
   as: "article",
+});
+
+// relation table commentaire et user
+db.user.hasMany(db.commentaire, { as: "commentaire"});
+db.commentaire.belongsTo(db.user, {
+  foreignKey: "commentaireId",
+  as: "user",
 });
 
 module.exports = db;

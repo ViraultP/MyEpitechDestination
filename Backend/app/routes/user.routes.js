@@ -38,7 +38,4 @@ module.exports = function(app) {
 
   // Delete a Tutorial with id
   app.delete("/api/users/:id", controller.delete);
-
-  // Delete all controller
-  app.delete("/api/users/", controller.deleteAll);
 };
