@@ -4,6 +4,7 @@ import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import Contact from "./components/Contact.vue";
 import Test from "./components/Test.vue";
+import NavTest from "./components/NavTest.vue";
 
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -15,9 +16,15 @@ const routes = [
     name: "home",
     component: Home,
   },
+  
   {
     path: "/home",
     component: Home,
+  },
+  
+  {
+    path: "/navtest",
+    component: NavTest,
   },
   {
     path: "/login",

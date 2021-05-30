@@ -1,21 +1,18 @@
 <template>
     <div>
-    <!--  -->
+        c'est le dropdown
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Test',
+    name: 'Dropdown',
+    props: [
+        'list'
+    ]
 }
-// import $ from "jquery";
-
-
-
-
 </script>
 
 <style scoped>
-
 
 </style>

@@ -46,9 +46,7 @@
                   ></span>
                  S'enregistrer
                 </button></a> 
-            </div>  
-              
-            
+            </div>   
 
             </div>
           </Form>
