@@ -8,8 +8,8 @@ module.exports =function(app) {
     next();
   });
  
-  app.get("/api/search/:recherche", (req, res) => {
-    const word = req.params.recherche;
+  app.get("/api/search/", (req, res) => {
+    const word = req.query.recherche;
     const words = word.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } );
     controller.search(words, res);
   });

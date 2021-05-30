@@ -13,7 +13,7 @@ module.exports = function(app) {
 app.post("/api/articles", controller.uploadImg, controller.createArticle);
 
 //Récuperer tous les articles et leur commentaires
-//app.get("/api/articles", controller.findAllArticle);
+app.get("/api/articles", controller.findAllArticles);
 
 // Récuperer un article par son id avec ses commentaires.
 app.get("/api/articles/:id", controller.findOne);
