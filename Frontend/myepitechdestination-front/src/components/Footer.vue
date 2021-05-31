@@ -58,7 +58,6 @@
 <style scoped>
 
 .body {
-
     font-family: "Bebas Neue", cursive;
 }
 .navbar h1 {
