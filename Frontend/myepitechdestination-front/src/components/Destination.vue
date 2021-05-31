@@ -8,8 +8,11 @@
             </div>
             
         </div>
-        
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <p>{{id}}</p>
+        <p>{{titre}}</p>
+        <p>{{description}}</p>
+
+        <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="" class="card-img-top" alt="">
@@ -19,13 +22,38 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 
+export default {
+  name: "Destination",
+  components: {
+ 
+  },
+   data() {
+    return {
+      content: "",
+    };
+  },
+  create(){
+      this.getArticle()
+  },
+  methods: {
+      getArticle() {
+          axios.get('http://localhost:8080/api/articles')
+          .then((resp) => {
+              this.data = resp
+              console.log(this.data.data)
+          })
+      }
+  },
+};
 </script>
+
 
 <style scoped>
 .header{
@@ -37,7 +65,6 @@
 .button{
     flex: 1;
     text-align: right;
-    
 }
 
 .button button{

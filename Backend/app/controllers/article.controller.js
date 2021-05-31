@@ -42,7 +42,7 @@ exports.createArticle = (req, res) => {
     const article = {
         titre: req.body.titre,
         description: req.body.description,
-        image: req.file.path,
+        image: req.body.image,
         universiteId: req.body.universiteId,
     };
     Article.create(article)

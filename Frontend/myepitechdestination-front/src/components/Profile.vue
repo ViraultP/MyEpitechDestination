@@ -61,10 +61,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: white;
   padding: 30px 10px;
   border-radius: 15px;
-  box-shadow: 0 10px 50px -10px #d6d6d6;
 }
 
 h3{
