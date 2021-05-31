@@ -80,6 +80,7 @@ export default {
 .logo{
     width: 50px;
     cursor: pointer;
+    margin: 0 auto;
 
 }
 

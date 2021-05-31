@@ -1,56 +1,59 @@
 <template>
-    <div class="container">
+    <div>
 
-        <div class="header">
-            <p>Les bons plans</p>
-            <div class="button">
-                <button>Voir 9 / page</button>
+      <div class="header">
+        <h4>Les bons plans</h4>
+        <div class="button">
+          <button>Voir 9 / page</button>
+        </div> 
+      </div>
+     
+      <div  class="row row-cols-1 row-cols-md-3 g-4">
+        <div  v-for="article in articles" v-bind:key="article.id" class="col">
+          <div id="card" class="card h-100">
+            <img :src="'http://localhost:8080/'+ article.image" width="400" >
+            <div class="card-body">
+              <h5 class="card-title">{{article.titre}}</h5>
+              <p class="card-text">Nom Prénom, 10 janvier 2020</p>
+              <ul class="stars">
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+              </ul>
             </div>
-            
+          </div>
         </div>
-        <p>{{id}}</p>
-        <p>{{titre}}</p>
-        <p>{{description}}</p>
-
-        <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+      </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios"
 
 export default {
   name: "Destination",
   components: {
  
   },
-   data() {
+  data () {
     return {
-      content: "",
-    };
+      articles: ""
+    }
   },
-  create(){
-      this.getArticle()
-  },
-  methods: {
-      getArticle() {
-          axios.get('http://localhost:8080/api/articles')
-          .then((resp) => {
-              this.data = resp
-              console.log(this.data.data)
-          })
+  created(){
+    this.fetcharticles();
+    },
+    methods: {
+      fetcharticles () {
+        axios
+       .get('http://localhost:8080/api/articles')
+      .then(data => (this.articles = data.data));
       }
-  },
+    }
+
+  
 };
 </script>
 
@@ -78,4 +81,38 @@ export default {
     font-size: 1.2em;
     outline: none;
 }
+
+#card{
+  background-color: #1B1B52;
+}
+
+#card img{
+  width: 100%;
+  height: auto;
+}
+.card-body{
+  font-family: 'Lato';
+  color: white;
+}
+
+.card-title{
+  font-size: 1.9em;
+}
+
+.card-text{
+  font-weight: normal;
+}
+
+.stars{
+  list-style: none;
+  display: inline-flex;
+  float: right;
+  
+}
+
+.stars li{
+  padding: 0 4px;
+  color: #85C4AF;
+}
+
 </style>
