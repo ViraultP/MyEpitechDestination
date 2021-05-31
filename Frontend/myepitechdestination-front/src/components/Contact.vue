@@ -22,46 +22,7 @@
                     <p class="menu3">01 44 08 00 15</p>
                 </div>
             </div>
-
-            <div class="row">
-                <p>test</p>
-            </div>
         </div>
-
-        <!-- <div class="header">
-            <div class="row">
-                <div class="col-md contact">
-                    <h1>Contactez - Nous</h1>
-                        <div class="col-md contact_infos">
-                            <button id="show1"><i class="fa fa-map-marker fa-1x" aria-hidden="true"></i></button>
-                            
-                                <p class="menu1">40 Boulevard de la marquette</p>
-                                <p class="menu1">Toulouse</p>
-                                <p class="menu1">31 000</p>
-                            
-                        </div>
-
-                    <div class="col-md contact_infos">
-                        <button id="show2"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></button>
-                        
-                            <p class="menu2"><a href="mailto:toulouse@epitech.eu">contact@my-destination-epitech.eu</a></p>
-                            <p class="menu2"><a href="mailto:toulouse@epitech.eu">toulouse@epitech.eu</a></p>
-                       
-                    </div>
-
-                    <div class="col-md contact_infos">
-                    <button id="show3"><i class="fa fa-phone fa-1x" aria-hidden="true"></i></button>
-                        <p class="menu3">01 44 08 00 15</p>
-                    </div>
-                </div>
-
-                <div class="col-md d-none d-md-block contact">
-                     <img src="../assets/contact_plane.jpg" class="logo" alt="contact">
-                </div>
-
-            </div>
-                
-        </div> -->
 
         <div class="container contact_dev">
             <div class="contact_dev_image">

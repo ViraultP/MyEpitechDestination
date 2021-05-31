@@ -3,7 +3,7 @@ import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import Contact from "./components/Contact.vue";
-import Test from "./components/Test.vue";
+import Destination from "./components/Destination.vue";
 import NavTest from "./components/NavTest.vue";
 
 const Profile = () => import("./components/Profile.vue")
@@ -39,8 +39,8 @@ const routes = [
     component: Contact,
   },
   {
-    path: "/test",
-    component: Test,
+    path: "/destination",
+    component: Destination,
   },
   {
     path: "/profile",

@@ -42,11 +42,11 @@
             {{ currentUser.username }}
           </router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" @click.prevent="logOut">
             <font-awesome-icon icon="sign-out-alt" /> Se déconnecter
           </a>
-        </li>
+        </li> -->
       </div>
       </nav> 
 <!-- ----------------------NAVBAR--------------------------------- -->
