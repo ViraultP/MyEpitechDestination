@@ -1,13 +1,15 @@
+// Imports
+var jwt = require("jsonwebtoken");
+var bcrypt = require("bcryptjs");
+
+// Constants
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
-
 const Op = db.Sequelize.Op;
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
-
+//Create and Save a new users
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
@@ -16,31 +18,35 @@ exports.signup = (req, res) => {
     email: req.body.email,
     mot_de_passe: bcrypt.hashSync(req.body.mot_de_passe, 8)
   })
-    .then(user => {
-      if (req.body.roles) {
-        Role.findAll({
-          where: {
-            nom: {
-              [Op.or]: req.body.roles
-            }
+  .then(user => {
+    if (req.body.roles) {
+      Role.findAll({
+        where: {
+          nom: {
+            [Op.or]: req.body.roles
           }
-        }).then(roles => {
-          user.setRoles(roles).then(() => {
-            res.send({ message: "Votre enregistrement est un succès :)!" });
-          });
+        }
+      })
+      .then(roles => {
+        user.setRoles(roles)
+        .then(() => {
+          res.send({ message: "Enregistrement réussi avec succès :)!" });
         });
-      } else {
-        // user role = 1
-        user.setRoles([1]).then(() => {
-          res.send({ message: "Utilisateur enregistré avec succès !" });
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
+      });
+    } else {
+      // user role = 1
+      user.setRoles([1])
+      .then(() => {
+        res.send({ message: "Utilisateur enregistré avec succès !" });
+      });
+    }
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
 };
 
+//Find a user
 exports.signin = (req, res) => {
   User.findOne({
     where: {
@@ -49,7 +55,7 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send({ message: "Utilisateur non trouvé." });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -60,7 +66,7 @@ exports.signin = (req, res) => {
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
-          message: "Invalid Password!"
+          message: "Mot de passe incorrect !"
         });
       }
 

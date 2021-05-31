@@ -1,15 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
     const Categorie = sequelize.define("categories", {
-      restauration: {
-        type: Sequelize.STRING
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
       },
-      lieu: {
-        type: Sequelize.STRING
-      },
-      activité: {
-        type: Sequelize.STRING
-      },
-      hébergement: {
+      nom: {
         type: Sequelize.STRING
       }
     });

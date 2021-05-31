@@ -24,9 +24,6 @@ module.exports = function(app) {
     controller.adminBoard
   );
 
-  // Create a new Tutorial
-  app.post("/api/users", controller.create);
-
   // Retrieve all controller
   app.get("/api/users", controller.findAll);
 
@@ -38,7 +35,4 @@ module.exports = function(app) {
 
   // Delete a Tutorial with id
   app.delete("/api/users/:id", controller.delete);
-
-  // Delete all controller
-  app.delete("/api/users/", controller.deleteAll);
 };

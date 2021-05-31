@@ -9,7 +9,6 @@ exports.search = (words, res) =>
     words.forEach((word) =>
     {
         str1 = str.push({titre: {[Op.substring] : word }},{ description: {[Op.substring] : word }})
-        console.log(str1)
     });
     Article.findAll(
     {
@@ -19,7 +18,6 @@ exports.search = (words, res) =>
     .then(article => 
     {
         res.send(article);
-        console.log(article);
     })
     .catch(err => 
     {
