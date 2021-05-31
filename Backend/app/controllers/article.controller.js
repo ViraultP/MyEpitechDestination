@@ -1,6 +1,6 @@
 //Imports
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+//var jwt = require("jsonwebtoken");
+//var bcrypt = require("bcryptjs");
 
 //constants
 const { article, commentaire } = require("../models");
@@ -43,6 +43,7 @@ exports.createArticle = (req, res) => {
         titre: req.body.titre,
         description: req.body.description,
         image: req.file.path,
+        universiteId: req.body.universiteId,
     };
     Article.create(article)
     .then((data) => {
@@ -57,7 +58,7 @@ exports.createArticle = (req, res) => {
 },
 
 // Retrieve article by id with his comments.
-exports.findOne = (req, res) => 
+exports.findOneArticle = (req, res) => 
 {
     const id = req.params.id;
     Article.findByPk(id)
@@ -153,7 +154,7 @@ exports.deleteOneArticle = (req, res) =>
     });
 };
 
-/* Create and save comment
+// Create and save comment
 exports.createCommentaire = (req, res) => {
     const commentaire = {
         email: req.body.email,
@@ -177,7 +178,7 @@ exports.createCommentaire = (req, res) => {
             err.message || "Une erreur s'est produite lors de la création du commentaire."
         })
     })
-},*/
+},
 
 // Delete comment by id
 exports.deleteCommentaire = (req, res) => {

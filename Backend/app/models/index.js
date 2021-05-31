@@ -147,11 +147,4 @@ db.commentaire.belongsTo(db.article, {
   as: "article",
 });
 
-// relation table commentaire et user
-db.user.hasMany(db.commentaire, { as: "commentaire"});
-db.commentaire.belongsTo(db.user, {
-  foreignKey: "commentaireId",
-  as: "user",
-});
-
 module.exports = db;
