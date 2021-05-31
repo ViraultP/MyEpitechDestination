@@ -10,9 +10,6 @@
 
                     <li><a href="/login"><img src="../assets/user.svg" alt="" width="30" height="30" /> </a></li>
 
-                    <!-- <li class="nav-item">
-                        <router-link v-if="currentUser" to="/user" class="nav-link">Utilisateur</router-link>
-                    </li> -->
                 </ul>
             </nav>
       </div>
@@ -43,9 +40,6 @@
 </template>
 
 
-export default {
-    
-}
 <script>
 import Dropdown from './Dropdown'
 
@@ -87,11 +81,6 @@ export default {
     width: 50px;
     cursor: pointer;
 
-}
-
-.menu-icon{
-    cursor: pointer;
-    margin-left: 40px;
 }
 
 nav{

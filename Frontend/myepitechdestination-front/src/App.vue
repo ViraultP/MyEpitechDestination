@@ -3,7 +3,7 @@
 
     <div class="container">
     <!-- Nav Bar appliqué sur toutes les pages - NAVBAR DE BASE -->
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <!-- <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href="/" class="navbar-brand">My Epitech Destination Test </a>
       <a href="/contact" class="navbar-brand">Contact </a>
       <a href="/test" class="navbar-brand">Test </a>
@@ -42,13 +42,13 @@
             {{ currentUser.username }}
           </router-link>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" @click.prevent="logOut">
             <font-awesome-icon icon="sign-out-alt" /> Se déconnecter
           </a>
-        </li> -->
+        </li>
       </div>
-      </nav> 
+      </nav>  -->
 <!-- ----------------------NAVBAR--------------------------------- -->
   <Header />
       <!-- <div class="navbar">
@@ -72,7 +72,8 @@
 <!-- ----------------------------COMPONENTS-------------------------------------- -->
   <router-view />
 <!-- ----------------------------FOOTER-------------------------------------- -->
-      <footer class="page-footer font-small indigo">
+<Footer />
+      <!-- <footer class="page-footer font-small indigo">
 
         <div class="container">
 
@@ -113,34 +114,34 @@
 <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%"
 />
 
- <!-- Grid row-->
 <div class="row pb-3">
-<!-- Grid column -->
+
 <div class="col-md-12">
 <div class="mb-5 flex-center"></div>
 </div>
-<!-- Grid column -->
 </div>
-<!-- Grid row-->
-</div>
-<!-- Footer Links -->
 
- <!-- Copyright -->
+</div>
+
+
+
 <div class="footer-copyright text-center py-3">
 Copyright © 2021 by My destination Epitech
 </div>
-<!-- Copyright -->
-</footer>
+
+</footer> -->
       </div>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
-    Header
+    Header,
+    Footer
   },
   computed: {
     currentUser() {
