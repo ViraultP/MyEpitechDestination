@@ -1,37 +1,19 @@
 <template>
     <div class="container">
       <div class="header">
-        <h4>Nouveaux articles</h4>
+        <h4>Article page</h4>
         <div class="button">
-          <button>Voir 6 / page</button>
-            <button>Single Article</button>
+          <button>Voir 7 / page</button>
+          {{$route.params.id}}
+          
         </div> 
       </div>
      
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div  v-for="article in articles" v-bind:key="article.id" class="col">
-          
-          <div id="card" class="card h-100">
-            <a :href="'/article/'+ article.id"><img :src="'http://localhost:8080/'+ article.image" width="400" ></a>
-            <div class="card-body">
-              <div class="title-heart"> 
-                <h5 class="card-title">{{article.titre}}</h5>
-                <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
-              </div>
-              <p class="card-text">Prénom Nom  |  10 janvier 2020</p>
-              <ul class="stars">
-                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-              </ul>
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
+     <p>{{article.titre}}</p>
+     <img :src="'http://localhost:8080/'+ article.image" width="400" >
+     <p>{{article.description}}</p>
+    
+       
     </div>
 </template>
 
@@ -45,21 +27,20 @@ export default {
   },
   data () {
     return {
-      articles: ""
+      article: null
     }
   },
   created(){
-    this.fetcharticles();
+    this.fetcharticle();
     },
     methods: {
-      fetcharticles () {
+      fetcharticle () {
         axios
-       .get('http://localhost:8080/api/articles')
-      .then(data => (this.articles = data.data));
+       .get('http://localhost:8080/api/articles/'+ this.$route.params.id)
+      .then(data => (this.article = data.data));
       }
     }
 
-  
 };
 </script>
 
