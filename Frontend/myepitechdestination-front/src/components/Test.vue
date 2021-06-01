@@ -1,6 +1,10 @@
 <template>
     <div>
+<<<<<<< HEAD
     <p>hello from test</p>
+=======
+    <!--  -->
+>>>>>>> Back-End
     </div>
 </template>
 

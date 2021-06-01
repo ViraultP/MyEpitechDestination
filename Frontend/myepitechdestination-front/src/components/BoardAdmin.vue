@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+<<<<<<< HEAD
       <nav class="navbar">
         <div class="navbar-left">
           <a class="active-link" href="#">Admin</a>
@@ -51,6 +52,15 @@
         </div>
       </div>
     </div>
+=======
+    <header class="jumbotron">
+      <h3>{{ content }}</h3>
+      <router-link to="/crudUtilisateurs">Liste des Utilisateurs</router-link><br/>
+      <router-link to="/crudArticles">Liste des Articles</router-link><br/>
+      <router-link to="/crudcommentaires">Liste des Commentaires</router-link>
+    </header>
+  </div>
+>>>>>>> Back-End
 </template>
 
 <script>

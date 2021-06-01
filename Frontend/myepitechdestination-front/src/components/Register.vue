@@ -151,6 +151,11 @@ export default {
   align-items: center;
   background-color: white;
   padding: 30px 10px;
+<<<<<<< HEAD
+=======
+  border-radius: 15px;
+  box-shadow: 0 10px 50px -10px #d6d6d6;
+>>>>>>> Back-End
 }
 
 .container img{

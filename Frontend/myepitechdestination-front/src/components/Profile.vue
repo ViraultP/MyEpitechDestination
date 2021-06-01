@@ -2,10 +2,15 @@
   <div class="container">
     <header>
       <h3>
-        <strong>{{currentUser.username}}</strong> Profile
+       Bonjour  <strong>{{currentUser.prénom}}</strong> !
       </h3>
     </header>
     <!-- <p>
+<<<<<<< HEAD
+=======
+    </header><br/>
+    <p>
+>>>>>>> Back-End
       <strong>Token:</strong>
       {{currentUser.accessToken.substring(0, 20)}} ... {{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}}
     </p>
@@ -13,9 +18,12 @@
       <strong>Id:</strong>
       {{currentUser.id}}
     </p> -->
+<<<<<<< HEAD
     <div>
       <a href="/"><button><font-awesome-icon icon="sign-out-alt" /> home</button></a>
     </div>
+=======
+>>>>>>> Back-End
     <p>
       <strong>Vous êtes connecté en tant que :</strong>
       {{currentUser.email}}
@@ -64,8 +72,15 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+<<<<<<< HEAD
   padding: 30px 10px;
   border-radius: 15px;
+=======
+  background-color: white;
+  padding: 30px 10px;
+  border-radius: 15px;
+  box-shadow: 0 10px 50px -10px #d6d6d6;
+>>>>>>> Back-End
 }
 
 h3{

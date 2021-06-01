@@ -23,6 +23,7 @@
           <li class="nav-item">
         <a class="nav-link" href="/">Accueil</a>
         </li>
+<<<<<<< HEAD
 
         <li class="nav-item">
         <a class="nav-link" href="/destination">Destination</a>
@@ -30,6 +31,16 @@
         
         <li class="nav-item">
         <a class="nav-link" href="/contact">Contact</a>
+=======
+        
+        <li class="nav-item" v-for="(item, index) in navigation" :key="'item'+index">
+        <a class="nav-link destination" href="/destination" @click="item.open = !item.open">{{item.title}}</a>
+        <Dropdown v-if="item.subnav" :list="item"/>
+        </li>
+        
+        <li class="nav-item">
+        <a class="nav-link" href="/contact">CONTACT</a>
+>>>>>>> Back-End
         </li>
 
         
@@ -40,9 +51,14 @@
 
 
 <script>
+<<<<<<< HEAD
 
 import axios from 'axios';
 import UserService from "../services/user.service";
+=======
+import Dropdown from './Dropdown'
+
+>>>>>>> Back-End
 export default {
     name: 'Header',
     computed: {
@@ -50,6 +66,7 @@ export default {
             return this.$store.getters.navigation;
         },
         currentUser() {
+<<<<<<< HEAD
             return this.$store.state.auth.user;
         },
         showAdminBoard() {
@@ -150,6 +167,21 @@ export default {
        console.log(this.continent);
       }
 }
+=======
+      return this.$store.state.auth.user;
+    },
+    showAdminBoard() {
+      if (this.currentUser && this.currentUser['roles']) {
+        return this.currentUser['roles'].includes('ROLE_ADMIN');
+      }
+
+      return false;
+    },
+    },
+    components: {
+        Dropdown
+    }
+>>>>>>> Back-End
 }
 </script>
 
@@ -167,7 +199,10 @@ export default {
 .logo{
     width: 50px;
     cursor: pointer;
+<<<<<<< HEAD
     margin: 0 auto;
+=======
+>>>>>>> Back-End
 
 }
 

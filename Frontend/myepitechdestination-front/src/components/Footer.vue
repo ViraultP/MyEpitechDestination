@@ -1,5 +1,6 @@
 <template>
     <div>
+<<<<<<< HEAD
          
   <!--footer starts from here-->
     <footer class="footer">
@@ -49,6 +50,10 @@
         </div>
     </footer>
   </div>
+=======
+        c'est le footer
+    </div>
+>>>>>>> Back-End
 </template>
 
 <script>
@@ -57,6 +62,7 @@
 
 <style scoped>
 
+<<<<<<< HEAD
 .body {
     font-family: "Bebas Neue", cursive;
 }
@@ -171,3 +177,6 @@ footer p {
 
 
 
+=======
+</style>
+>>>>>>> Back-End
