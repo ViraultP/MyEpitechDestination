@@ -11,6 +11,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use('/public/images', express.static('./public/images'));
 
 const db = require("./app/models");
 const Role = db.role;
@@ -20,7 +21,7 @@ require('./app/routes/user.routes')(app);
 require('./app/routes/article.routes')(app);
 require('./app/routes/search.routes')(app);
 require('./app/routes/filtre.routes')(app);
-
+require('./app/routes/universite.routes')(app);
 
 db.sequelize.sync();
 
