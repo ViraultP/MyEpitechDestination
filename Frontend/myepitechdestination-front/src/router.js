@@ -6,6 +6,7 @@ import Contact from "./components/Contact.vue";
 import Destination from "./components/Destination.vue";
 import NavTest from "./components/NavTest.vue";
 
+
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
@@ -16,12 +17,12 @@ const routes = [
     name: "home",
     component: Home,
   },
-  
+
   {
     path: "/home",
     component: Home,
   },
-  
+
   {
     path: "/navtest",
     component: NavTest,
@@ -64,15 +65,15 @@ const router = createRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
-    const publicPages = ['/login', '/register', '/home'];
-    const authRequired = !publicPages.includes(to.path);
-    const loggedIn = localStorage.getItem('user');
-  
-    if (authRequired && !loggedIn) {
-      next('/login');
-    } else {
-      next();
-    }
-  });
+  const publicPages = ['/login', '/register', '/home'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 export default router;

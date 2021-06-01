@@ -24,9 +24,6 @@ module.exports = function(app) {
     controller.adminBoard
   );
 
-  // Create a new Tutorial
-  app.post("/api/users", controller.create);
-
   // Retrieve all controller
   app.get("/api/users", controller.findAll);
 

@@ -11,7 +11,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     mot_de_passe: {
       type: Sequelize.STRING
-    }
+    },
+    favoris: {
+      type: Sequelize.STRING,
+      defaultValue: "",
+    },
   });
   return User;
 };

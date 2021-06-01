@@ -11,6 +11,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use('/public/images', express.static('./public/images'));
 
 const db = require("./app/models");
 const Role = db.role;

@@ -26,14 +26,17 @@ exports.signup = (req, res) => {
             [Op.or]: req.body.roles
           }
         }
-      }).then(roles => {
-        user.setRoles(roles).then(() => {
+      })
+      .then(roles => {
+        user.setRoles(roles)
+        .then(() => {
           res.send({ message: "Enregistrement réussi avec succès :)!" });
         });
       });
     } else {
       // user role = 1
-      user.setRoles([1]).then(() => {
+      user.setRoles([1])
+      .then(() => {
         res.send({ message: "Utilisateur enregistré avec succès !" });
       });
     }
