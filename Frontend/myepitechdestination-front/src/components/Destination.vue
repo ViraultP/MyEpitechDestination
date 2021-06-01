@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <Header />
       <div class="header">
         <h4>Nouveaux articles</h4>
         <div class="button">
@@ -31,16 +32,20 @@
         </div>
         
       </div>
+      <Footer />
     </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import axios from "axios"
 
 export default {
   name: "Destination",
   components: {
- 
+    Header,
+    Footer
   },
   data () {
     return {

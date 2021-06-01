@@ -50,24 +50,24 @@
       </div>
       </nav>  -->
 <!-- ----------------------NAVBAR--------------------------------- -->
-  <Header />
+  <!-- <Header /> -->
 <!-- ----------------------------COMPONENTS-------------------------------------- -->
   <router-view />
 <!-- ----------------------------FOOTER-------------------------------------- -->
-<Footer />
+<!-- <Footer /> -->
 
     </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
+// import Header from '@/components/Header.vue'
+// import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
-    Header,
-    Footer
+    // Header,
+    // Footer
   },
   computed: {
     currentUser() {

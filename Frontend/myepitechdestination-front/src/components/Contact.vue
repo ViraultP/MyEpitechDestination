@@ -1,4 +1,7 @@
 <template>
+<div class="container">
+    <Header />
+
     <div class="contact_container">
         <div class="row all_contact">
             <h1>Conctater Nous</h1>
@@ -55,15 +58,22 @@
                 </div>
             </div>
         </div>
-
+    <Footer />
     </div>
-                       
+    </div>                   
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 export default {
-    name: 'Contact'
+    name: 'Contact',
+    components: {
+    Header,
+    Footer
+  },
 }
+
 import $ from "jquery";
 
 $(document).ready ( function () 

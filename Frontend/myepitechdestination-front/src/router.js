@@ -5,7 +5,7 @@ import Register from "./components/Register.vue";
 import Contact from "./components/Contact.vue";
 import Destination from "./components/Destination.vue";
 import Article from "./components/Article.vue";
-import NavTest from "./components/NavTest.vue";
+
 
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -22,11 +22,7 @@ const routes = [
     path: "/home",
     component: Home,
   },
-  
-  {
-    path: "/navtest",
-    component: NavTest,
-  },
+
   {
     path: "/login",
     component: Login,
