@@ -4,7 +4,6 @@
         <h4>Nouveaux articles</h4>
         <div class="button">
           <button>Voir 6 / page</button>
-            <button>Single Article</button>
         </div> 
       </div>
      

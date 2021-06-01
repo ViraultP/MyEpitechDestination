@@ -1,20 +1,38 @@
 <template>
+
     <div class="container">
-      <div class="header">
-        <h4>Article page</h4>
-        <div class="button">
-          <button>Voir 7 / page</button>
-          {{$route.params.id}}
-          
-        </div> 
+      <div class="row header">
+        <a href="/destination"><i class="fa fa-long-arrow-left fa-4x" aria-hidden="true"></i></a> 
+        <h1>{{article.titre}}</h1>
       </div>
-     
-     <p>{{article.titre}}</p>
-     <img :src="'http://localhost:8080/'+ article.image" width="400" >
-     <p>{{article.description}}</p>
-    
-       
+
+      <div class="row image">
+        <img :src="'http://localhost:8080/'+ article.image" width="400" >
+      </div>
+      <div class="row infos">
+        <p>10 janvier 2020 | Prénom Nom</p>
+      </div>
+      <div class="row description">
+        <p>{{article.description}}</p>
+        <hr>
+      </div>
+
+      <div class="row">
+        <div class="evaluation">
+          <h1>Cet articles est utile ?</h1>
+          <ul class="stars">
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            </ul>
+        </div>
+        
+        
+      </div>
     </div>
+        
 </template>
 
 <script>
@@ -47,59 +65,81 @@ export default {
 
 <style scoped>
 
-.header{
-    height: 12%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-}
-.header h4{
-  font-weight: lighter;
-}
-.button{
-    flex: 1;
-    text-align: right;
+.header .fa-long-arrow-left{
+  width: 150px;
+  margin-bottom: 50px;
+  color: black;
 }
 
-.button button{
-    width: 150px;
-    height: 50px;
-    border-radius: 8px;
-    border: 1px solid #85c4af;
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    font-size: 1.2em;
-    outline: none;
-    font-weight: lighter;
+.header .fa-long-arrow-left a{
+  text-decoration: none;
 }
 
-.button button:hover{
-    font-weight: normal;
-    border: 3px solid #85c4af;
+.header .fa-long-arrow-left:hover{
+  color: #85C4AF; 
 }
 
-.row-cols-1{
-  margin-bottom: 150px;
+.header h1{
+     font-family:'Bebas Neue', cursive;
+     font-size: 2.6em;
 }
 
-#card{
-  background-color: #1B1B52;
-  height: auto;
-  border: none;
-}
-
-#card img{
+.image{
   width: 100%;
-  height: auto;
+  margin-bottom: 10px;
 }
-.card-body{
+
+.infos p{
+  margin-top: 10px; 
   font-family: 'Lato';
-  color: white;
+  font-size: 1.2em;
+  font-weight: l;
+}
+
+.description p{
+  text-align: justify; 
+  font-family: 'Lato';
+  font-size: 1.3em;
+  line-height: 2em;
+}
+
+.evaluation{
+  width: 100%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
   
 }
 
-.title-heart{
+.evaluation h1{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.3em;
+}
+
+.evaluation .stars{
+  flex: 1;
+  text-align: right;
+}
+
+.stars {
+  list-style: none;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.fa-star-o{
+  flex: 1;
+  text-align: right;
+}
+
+.stars li{
+  float: right;
+  padding: 10px 4px 0px 4px;
+  color: #85C4AF;
+}
+
+/* .title-heart{
     height: 12%;
     display: flex;
     align-items: center;
@@ -112,31 +152,8 @@ export default {
     text-align: right;
     color: #85C4AF;
     cursor: pointer;
-}
+} */
 
 
-.card-title{
-  font-size: 2.1em;
-  text-decoration: none;
-  
-}
-
-.card-text{
-  margin-top: 20px;
-  font-weight: normal;
-  font-size: 1.2em;
-}
-
-.stars{
-  list-style: none;
-  display: inline-flex;
-  float: right;
-  cursor: pointer;
-}
-
-.stars li{
-  padding: 10px 4px 0px 4px;
-  color: #85C4AF;
-}
 
 </style>
