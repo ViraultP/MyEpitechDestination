@@ -1,8 +1,9 @@
 <template>
     <div class="container">
       <Header />
+      <Dropdown />
       <div class="header">
-        <h4>Nouveaux articles</h4>
+        <h4>Tous les articles</h4>
         <div class="button">
           <button>Voir 6 / page</button>
         </div> 
@@ -19,13 +20,13 @@
                 <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
               </div>
               <p class="card-text">Prénom Nom  |  10 janvier 2020</p>
-              <ul class="stars">
+              <!-- <ul class="stars">
                 <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
                 <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
                 <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
                 <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
                 <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-              </ul>
+              </ul> -->
             </div>
           </div>
           
@@ -38,6 +39,7 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import Dropdown from './Dropdown'
 import Footer from '@/components/Footer.vue'
 import axios from "axios"
 
@@ -45,6 +47,7 @@ export default {
   name: "Destination",
   components: {
     Header,
+    Dropdown,
     Footer
   },
   data () {

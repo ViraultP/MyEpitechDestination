@@ -1,53 +1,29 @@
 <template>
     <div>
-        <input type='text' v-model='query' @keyup='searchBar(query)'>
-            <div v-for='article in data.data' :key='article'>
-                {{article.titre}}
-                {{article.description}}
-                <img :src="'http://localhost:8080/'+ article.image" width="250" >
-            </div>
-    
+      <input type='text' v-model='query' @keyup='searchBar(query)'>
+    <div v-for='article in data.data' :key='article'>
+      {{article.titre}}
+      {{article.description}}
+      <img :src="'http://localhost:8080/'+ article.image" width="250" >
+    </div>
     <select  v-model='continent' @change='getByContinent()'>
         <option  v-for="continent in continents.data" :key='continent.id'>{{continent.continent}}</option>
-    </select>
-    <br>
-
+    </select><br>
     <div v-for="country in countries.data" :key='country.id'>
-        <select  v-model='pays' @change='getByPays()'>
-            <option v-for="pays in country.etats" :key='pays.id'>{{pays.pays}}</option>
-        </select>
-        <br>
-    </div>
-
-    <div>
-        <select v-model='ville' @change='getByVille()'>
-            <option  v-for="ville in ville.data" :key='ville.id'>{{ville.nom}}</option>
-        </select>
-        <br>
-    </div>
-
-    <div>
-        <select  v-model='universite' @change='getByUniversite()'>
-            <option  v-for="ecole in universite.data" :key='ecole.id'>{{ecole.nom}}</option>
-        </select>
-        <br>
-    </div>
-
+    <select  v-model='pays' @change='getByPays()'>
+        <option v-for="pays in country.etats" :key='pays.id'>{{pays.pays}}</option>
+    </select><br></div>
+    <div><select v-model='ville' @change='getByVille()'>
+        <option  v-for="ville in ville.data" :key='ville.id'>{{ville.nom}}</option>
+    </select><br></div>
+    <div><select  v-model='universite' @change='getByUniversite()'>
+        <option  v-for="ecole in universite.data" :key='ecole.id'>{{ecole.nom}}</option>
+    </select><br></div>
     <div v-for='article in articles.data' :key='article.id'>
-      <div>
-          {{article.titre}}
-        </div>
-        <br>
-
-      <div>
-        {{article.description}}
+      <div>{{article.titre}}</div><br>
+      <div>{{article.description}}</div><br>
+      <div><img :src="'http://localhost:8080/'+ article.image" width="250" ></div><br>
       </div>
-       <br>
-
-      <div>
-          <img :src="'http://localhost:8080/'+ article.image" width="250" ></div><br>
-      </div>
-
     </div>
 </template>
 

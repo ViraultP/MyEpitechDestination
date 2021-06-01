@@ -26,17 +26,10 @@
 
         <li class="nav-item">
         <a class="nav-link" href="/destination">Destination</a>
-        <TestDropdown />
         </li>
         
-        <!-- <li class="nav-item" v-for="(item, index) in navigation" :key="'item'+index">
-        <a class="nav-link destination" href="/destination" @click="item.open = !item.open">
-        {{item.title}}</a>
-        <Dropdown v-if="item.subnav" :list="item"/>
-        </li> -->
-        
         <li class="nav-item">
-        <a class="nav-link" href="/contact">CONTACT</a>
+        <a class="nav-link" href="/contact">Contact</a>
         </li>
 
         
@@ -47,7 +40,7 @@
 
 
 <script>
-import TestDropdown from './TestDropdown'
+
 import axios from 'axios';
 import UserService from "../services/user.service";
 export default {
@@ -67,7 +60,7 @@ export default {
     },
     },
     components: {
-        TestDropdown
+        
     },
     data() {
     return {

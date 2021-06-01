@@ -2,6 +2,7 @@
 
     <div class="container">
       <Header />
+      <Dropdown />
       <div class="row header">
         <a href="/destination"><i class="fa fa-long-arrow-left fa-4x" aria-hidden="true"></i></a> 
         <h1>{{article.titre}}</h1>
@@ -60,6 +61,7 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import Dropdown from './Dropdown'
 import Footer from '@/components/Footer.vue'
 import axios from "axios"
 
@@ -67,6 +69,7 @@ export default {
   name: "Destination",
   components: {
     Header,
+    Dropdown,
     Footer
   },
   data () {
