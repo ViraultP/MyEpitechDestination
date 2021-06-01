@@ -34,7 +34,6 @@
           </div>
         </div>
       </div>
-
       <div class="container contact_dev">
         <div class="contact_dev_image">
           <img src="../assets/contact2.png" class="logo" alt="contact" />

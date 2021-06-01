@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const {searchh} = require("./app/routes/search.routes");
+const { searchh } = require("./app/routes/search.routes");
 const app = express();
 
 app.use(express.json())

@@ -13,6 +13,9 @@
       <strong>Id:</strong>
       {{currentUser.id}}
     </p> -->
+    <div>
+      <a href="/"><button><font-awesome-icon icon="sign-out-alt" /> home</button></a>
+    </div>
     <p>
       <strong>Vous êtes connecté en tant que :</strong>
       {{currentUser.email}}

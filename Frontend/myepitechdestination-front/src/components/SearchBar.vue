@@ -14,15 +14,36 @@
           {{ article.description }}
           <img :src="'http://localhost:8080/' + article.image" width="250" />
         </div>
-        <img src="../assets/loupe.svg" alt="" width="60" height="60" />
+        <select v-model="continent" @change="getByContinent()">
+          <option v-for="continent in continents.data" :key="continent.id">
+            {{ continent.continent }}
+          </option></select
+        ><br />
+        <div v-for="country in countries.data" :key="country.id">
+          <select v-model="pays" @change="getByPays()">
+            <option v-for="pays in country.etats" :key="pays.id">
+              {{ pays.pays }}
+            </option></select
+          ><br />
+        </div>
+        <div>
+          <select v-model="ville" @change="getByVille()">
+            <option v-for="ville in ville.data" :key="ville.id">
+              {{ ville.nom }}
+            </option></select
+          ><br />
+        </div>
+        <div>
+          <select v-model="universite" @change="getByUniversite()">
+            <option v-for="ecole in universite.data" :key="ecole.id">
+              {{ ecole.nom }}
+            </option></select
+          ><br />
+        </div>
         <div v-for="article in articles.data" :key="article.id">
-          <div>
-            {{ article.titre }}
-          </div>
+          <div>{{ article.titre }}</div>
           <br />
-          <div>
-            {{ article.description }}
-          </div>
+          <div>{{ article.description }}</div>
           <br />
           <div>
             <img :src="'http://localhost:8080/' + article.image" width="250" />
@@ -33,6 +54,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from "axios";
@@ -50,7 +72,6 @@ export default {
       articles: [],
     };
   },
-
   mounted() {
     UserService.getPublicContent().then(
       (response) => {

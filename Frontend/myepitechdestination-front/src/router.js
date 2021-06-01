@@ -4,7 +4,8 @@ import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import Contact from "./components/Contact.vue";
 import Destination from "./components/Destination.vue";
-import NavTest from "./components/NavTest.vue";
+import Article from "./components/Article.vue";
+
 
 
 const Profile = () => import("./components/Profile.vue")
@@ -42,6 +43,10 @@ const routes = [
   {
     path: "/destination",
     component: Destination,
+  },
+  {
+    path: "/article/:id",
+    component: Article,
   },
   {
     path: "/profile",

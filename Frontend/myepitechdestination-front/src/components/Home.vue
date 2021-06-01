@@ -10,14 +10,15 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import SearchBar from "./SearchBar";
 import Footer from "@/components/Footer.vue";
+import SearchBar from "./SearchBar";
+
 export default {
+  name: "Home",
   components: {
     SearchBar,
     Header,
     Footer,
   },
-  name: "Home",
 };
 </script>
