@@ -2,10 +2,12 @@
   <div class="container">
     <header>
       <h3>
-        <strong>{{currentUser.username}}</strong> Profile
+       Bonjour  <strong>{{currentUser.prénom}}</strong> !
       </h3>
     </header>
     <!-- <p>
+    </header><br/>
+    <p>
       <strong>Token:</strong>
       {{currentUser.accessToken.substring(0, 20)}} ... {{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}}
     </p>
