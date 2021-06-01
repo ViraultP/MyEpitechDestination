@@ -15,12 +15,7 @@ exports.findAll = (req, res) => {
         include: [{
             model: Role,
             as: 'roles',
-            attributes :["id","nom"],
-            through: {
-                model: user_roles,
-                as: 'user_roles',
-                attributes: ['userId', 'roleId']
-            }
+            attributes :["nom"],
         }]
     })
     .then(function(user){
@@ -42,12 +37,7 @@ exports.findOne = (req, res) => {
         include: [{
             model: Role,
             as: 'roles',
-            attributes :["id","nom"],
-            through: {
-                model: user_roles,
-                as: 'user_roles',
-                attributes: ['userId', 'roleId']
-            }
+            attributes :["nom"],
         }]
     })
     .then(data => {
@@ -71,39 +61,29 @@ exports.update = (req, res) => {
         mot_de_passe: bcrypt.hashSync(req.body.mot_de_passe, 8),
     },
     {
-        where: { id: id }
+        returning: true, where: { id: id }
+    })
+    User.findByPk(id, {
+        include: [{
+            model: Role,
+            as: 'roles',
+            attributes :["nom"],
+        }]
     })
     .then(user => {
         if (req.body.roles) {
-          Role.findAll({
-            where: {
-              nom: {
-                [Op.or]: req.body.roles
-              }
-            }
-          })
-          .then(roles => {
-            user.setRoles(roles)
-            .then(() => {
-              res.send({ message: ";;;;;;;;;;" });
-            });
-          });
-        } else {
-          // user role = 1
-          user.setRoles([1])
-          .then(() => {
-            res.send({ message: "bbbbbbbbbbbb" });
-          });
-        }
-    })
-    .then(num => {
-        if(num == 1) {
-            res.send({
-                message: "L'utilisateur a été mis à jour avec succès."
-            });
-        } else {
-            res.send({
-                message: `Impossible de mettre à jour l'utilisateur avec l'identifiant: ${id}.`
+            Role.findAll({
+                where: {
+                nom: {
+                    [Op.in]: req.body.roles
+                }
+                }
+            })
+            .then(roles => {
+                user.setRoles(roles)
+                .then(() => {
+                res.send({ message: "L'utilisateur à été modifié avec succès" });
+                });
             });
         }
     })

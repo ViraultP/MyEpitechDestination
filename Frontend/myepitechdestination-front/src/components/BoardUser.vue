@@ -2,6 +2,7 @@
   <div class="container">
     <header class="jumbotron">
       <h3>{{ content }}</h3>
+      <router-link to="/modifuser">Editer son profil</router-link><br/>
     </header>
   </div>
 </template>
