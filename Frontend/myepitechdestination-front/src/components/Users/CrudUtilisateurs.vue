@@ -121,7 +121,6 @@ export default {
   padding: 10px 15px;
 }
 
-
 .header a i{
   padding: 0 10px;
   background-color: transparent;
