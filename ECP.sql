@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 28 mai 2021 à 16:12
+-- Généré le : mer. 02 juin 2021 à 11:33
 -- Version du serveur :  8.0.25-0ubuntu0.20.10.1
 -- Version de PHP : 7.4.9
 
@@ -30,13 +30,33 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `articles` (
   `id` int NOT NULL,
+  `auteur` varchar(255) DEFAULT NULL,
   `titre` varchar(255) DEFAULT NULL,
   `description` text,
   `image` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `universiteId` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `articles`
+--
+
+INSERT INTO `articles` (`id`, `auteur`, `titre`, `description`, `image`, `createdAt`, `updatedAt`, `universiteId`) VALUES
+(1, 'Alice', 'Sydney', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\sydney.jpg', '2021-05-31 14:43:42', '2021-05-31 14:43:42', 11),
+(2, 'Grégoire', 'Singapour', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\singapour.jpg', '2021-05-31 14:44:39', '2021-05-31 14:44:39', 72),
+(3, 'Karim', 'San Francisco', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\san-francisco.jpg', '2021-05-31 14:44:57', '2021-05-31 14:44:57', 90),
+(4, 'Nicolas', 'New York', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\ny.jpg', '2021-05-31 15:18:56', '2021-05-31 15:18:56', 84),
+(5, 'Alexandre', 'Stockolm', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\stockholm.jpg', '2021-05-31 14:45:32', '2021-05-31 14:45:32', 73),
+(6, 'Pauline', 'Londres', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\london.jpg', '2021-05-31 14:45:47', '2021-05-31 14:45:47', 7),
+(7, 'Thomas', 'Los Angeles', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\losangeles.jpg', '2021-06-01 17:37:23', '2021-06-01 17:37:23', 89),
+(8, 'Adrien', 'Berlin', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\berlin.jpg', '2021-06-01 18:29:52', '2021-06-01 18:29:52', 3),
+(9, 'Tom', 'Bruxelles', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\bruxelles.jpg', '2021-06-01 18:30:05', '2021-06-01 18:30:05', 14),
+(10, 'Vincent', 'Rio de Janeiro', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\rio.jpg', '2021-06-01 18:30:21', '2021-06-01 18:30:21', 17),
+(11, 'Andrea', 'Montréal', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\montreal.jpg', '2021-06-01 18:30:50', '2021-06-01 18:30:50', 18),
+(12, 'Jérôme', 'Afrique du Sud', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It is a long established fact that a reader will be distracted.\nThe point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.\nMany desktop publishing packages  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'public\\images\\southafrica.jpg', '2021-06-01 18:31:20', '2021-06-01 18:31:20', 1),
+(13, 'Sarah', 'Shanghai', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'public\\images\\Shanghai.jpg', '2021-06-01 21:37:44', '2021-06-01 21:37:44', 25);
 
 -- --------------------------------------------------------
 
@@ -57,7 +77,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `nom`, `createdAt`, `updatedAt`) VALUES
 (1, 'restauration', '2021-05-28 16:10:10', '2021-05-28 16:10:10'),
-(2, 'lieu', '2021-05-28 16:10:10', '2021-05-28 16:10:10'),
+(2, 'Site vernaculaire', '2021-05-28 16:10:10', '2021-05-28 16:10:10'),
 (3, 'activité', '2021-05-28 16:10:39', '2021-05-28 16:10:39'),
 (4, 'hébergement', '2021-05-28 16:10:39', '2021-05-28 16:10:39');
 
@@ -68,11 +88,30 @@ INSERT INTO `categories` (`id`, `nom`, `createdAt`, `updatedAt`) VALUES
 --
 
 CREATE TABLE `categorie_articles` (
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `articleId` int NOT NULL,
   `categorieId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `categorie_articles`
+--
+
+INSERT INTO `categorie_articles` (`createdAt`, `updatedAt`, `articleId`, `categorieId`) VALUES
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 1, 2),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 2, 4),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 3, 3),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 4, 2),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 5, 3),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 6, 2),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 7, 1),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 8, 1),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 9, 3),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 10, 3),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 11, 1),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 12, 4),
+('2021-06-02 11:33:25', '2021-06-02 11:33:25', 13, 1);
 
 -- --------------------------------------------------------
 
@@ -84,10 +123,28 @@ CREATE TABLE `commentaires` (
   `id` int NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `commentaire` text,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `articleId` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id`, `nom`, `commentaire`, `createdAt`, `updatedAt`, `articleId`) VALUES
+(1, 'Sarah', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue nisl, pharetra vel orci molestie, fringilla tincidunt dui. Nulla dui erat, pretium vitae ligula sit amet, volutpat vulputate lorem. ', '2021-06-01 06:40:35', '2021-06-01 06:40:35', 1),
+(2, 'Andréa', 'Vestibulum tempus mauris non nulla ornare, vel suscipit mi interdum. Nam mi risus, facilisis vitae massa a, consectetur ultrices enim. Cras eu enim sit amet erat auctor consequat in quis diam. Phasellus nec turpis augue. Mauris maximus hendrerit lectus euismod vehicula. Praesent eu laoreet nulla. Donec tristique ligula vitae nulla faucibus, id mattis augue tempor. Curabitur nec elit scelerisque, eleifend sem ut, interdum lectus. Morbi ultrices neque ac sapien tempus, eu facilisis lorem volutpat. Nam eu sollicitudin orci.', '2021-06-01 06:40:44', '2021-06-01 06:40:44', 1),
+(3, 'Benjamin', 'Ut faucibus eleifend tortor, id venenatis nisi.', '2021-06-01 06:41:08', '2021-06-01 06:41:08', 2),
+(4, 'Carla', 'Ut faucibus eleifend tortor, id venenatis nisi.\r\n\r\nVestibulum tempus mauris non nulla ornare, vel suscipit mi interdum. Nam mi risus, facilisis vitae massa a, consectetur ultrices enim. Cras eu enim sit amet erat auctor consequat in quis diam. Phasellus nec turpis augue. Mauris maximus hendrerit lectus euismod vehicula. Praesent eu laoreet nulla. Donec tristique ligula vitae nulla faucibus, id mattis augue tempor. Curabitur nec elit scelerisque, eleifend sem ut, interdum lectus. Morbi ultrices neque ac sapien tempus, eu facilisis lorem volutpat. Nam eu sollicitudin orci.', '2021-06-01 06:42:46', '2021-06-01 06:42:46', 2),
+(5, 'Margaux ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue nisl, pharetra vel orci molestie, fringilla tincidunt dui. Nulla dui erat, pretium vitae ligula sit amet, volutpat vulputate lorem. Fusce molestie et lectus vehicula sollicitudin. Quisque vulputate ac urna imperdiet malesuada. Proin viverra justo quis suscipit tempus. ', '2021-06-01 07:33:45', '2021-06-01 07:33:45', 3),
+(6, 'Anna', 'Mauris iaculis lorem ac ornare viverra.', '2021-06-01 07:35:25', '2021-06-01 07:35:25', 3),
+(7, 'Antoine', 'Ut faucibus eleifend tortor, id venenatis nisi. Sed in felis neque. Aliquam auctor tristique laoreet. Nulla a dui lacus. Nam malesuada aliquam tortor eget sodales. Fusce aliquam, ante posuere blandit imperdiet, nibh massa volutpat lacus, in eleifend eros justo vel lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus.', '2021-06-01 07:35:37', '2021-06-01 07:35:37', 4),
+(8, 'Adrien', 'Morbi sed fermentum mi, vel semper velit. Duis vel nunc varius, vulputate turpis a, viverra urna. Praesent semper, lorem at tempor scelerisque, elit orci feugiat leo, eu condimentum dolor sapien eget libero. Nulla consectetur justo vitae augue aliquet, varius venenatis quam tincidunt. Donec imperdiet imperdiet lectus, semper viverra sapien semper a. Etiam pretium molestie purus consectetur consequat. Donec imperdiet efficitur purus. Pellentesque tincidunt rutrum viverra. Etiam eget magna id ex mollis ornare. Sed vel eros nunc. Maecenas quis nisl non diam consectetur vulputate vitae id enim.', '2021-06-01 07:35:48', '2021-06-01 07:35:48', 4),
+(9, 'Simone', 'Vestibulum tempus mauris non nulla ornare, vel suscipit mi interdum. Nam mi risus, facilisis vitae massa a, consectetur ultrices enim. Cras eu enim sit amet erat auctor consequat in quis diam. Phasellus nec turpis augue. Mauris maximus hendrerit lectus euismod vehicula. Praesent eu laoreet nulla. Donec tristique ligula vitae nulla faucibus, id mattis augue tempor. ', '2021-06-01 10:44:52', '2021-06-01 10:44:52', 5),
+(10, 'Océane', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2021-06-01 10:45:39', '2021-06-01 10:45:39', 5),
+(11, 'Clément ', 'Mauris iaculis lorem ac ornare viverra. Mauris euismod egestas ultrices. Etiam vulputate auctor magna in varius. Donec cursus vitae urna ac scelerisque. Nullam imperdiet odio eu dui posuere varius. Aenean a tortor posuere, viverra lacus vitae, tristique urna. Vestibulum id hendrerit tellus, eget lacinia quam. Quisque at semper nulla. Sed dui eros, hendrerit semper ipsum eget, fringilla dapibus risus. Donec auctor scelerisque turpis sit amet dictum. Quisque non scelerisque urna, at pellentesque sem. Curabitur sed porttitor ex. Maecenas molestie vel diam in pretium.', '2021-06-01 10:46:14', '2021-06-01 10:46:14', 6),
+(12, 'Estelle', 'Morbi sed fermentum mi, vel semper velit. Duis vel nunc varius, vulputate turpis a, viverra urna. Praesent semper, lorem at tempor scelerisque, elit orci feugiat leo, eu condimentum dolor sapien eget libero. ', '2021-06-01 10:46:14', '2021-06-01 10:46:14', 6);
 
 -- --------------------------------------------------------
 
@@ -98,8 +155,8 @@ CREATE TABLE `commentaires` (
 CREATE TABLE `continents` (
   `id` int NOT NULL,
   `Continent` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -184,8 +241,8 @@ INSERT INTO `continent_etats` (`createdAt`, `updatedAt`, `continentId`, `etatId`
 CREATE TABLE `etats` (
   `id` int NOT NULL,
   `Pays` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -242,8 +299,8 @@ INSERT INTO `etats` (`id`, `Pays`, `createdAt`, `updatedAt`) VALUES
 CREATE TABLE `roles` (
   `id` int NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -263,8 +320,8 @@ INSERT INTO `roles` (`id`, `nom`, `createdAt`, `updatedAt`) VALUES
 CREATE TABLE `universites` (
   `id` int NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `villeId` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -379,16 +436,21 @@ CREATE TABLE `users` (
   `prénom` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `mot_de_passe` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
+  `favoris` varchar(255) DEFAULT '',
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prénom`, `email`, `mot_de_passe`, `createdAt`, `updatedAt`) VALUES
-(1, 'VIRAULT', 'Pauline', 'pauline.virault@epitech.eu', '$2a$08$cyHcKD.1gvYgu/oYNCswfuNDh9XFwB6NC.HKWz6Q519nfYo0hUgf.', '2021-05-28 12:34:27', '2021-05-28 12:34:27');
+INSERT INTO `users` (`id`, `nom`, `prénom`, `email`, `mot_de_passe`, `favoris`, `createdAt`, `updatedAt`) VALUES
+(1, 'VIRAULT', 'Pauline', 'pauline.virault@epitech.eu', '$2a$08$cyHcKD.1gvYgu/oYNCswfuNDh9XFwB6NC.HKWz6Q519nfYo0hUgf.', '', '2021-05-28 12:34:27', '2021-05-28 12:34:27'),
+(2, 'AMAR', 'Sarah', 'sarah.amar@epitech.eu', '$2a$08$iA5BzMC/OyVeUltT/hAEb.ZrJVAbJtlFAXKBChGV65PTxi9PdYrQG', '', '2021-06-02 09:24:50', '2021-06-02 09:29:00'),
+(3, 'ARASPIN', 'Jérôme', 'jerome.araspin@epitech.eu', '$2a$08$rxYvc4NZ6elTiRovY3lYY.Z05qpYdxbo56uQwLx/mBOMDdL98hUgq', '', '2021-06-02 09:25:44', '2021-06-02 09:29:43'),
+(4, 'CROSNIER', 'Vincent', 'vincent.crosnier@epitech.eu', '$2a$08$4TIotn7eyK8j.0k7O6KId.G9/tgV1sNQb0KTjK.3s7Ih5RA6Q1uu6', '', '2021-06-02 09:26:10', '2021-06-02 09:30:28'),
+(5, 'RODRIGUEZ', 'Andrea', 'andrea.rodriguez@epitech.eu', '$2a$08$pvodUsjs/crBtQTRwnvlA.8QRiRcTgL3RwM9OgZ34Fc1V92zVSmji', '', '2021-06-02 09:27:29', '2021-06-02 09:27:29');
 
 -- --------------------------------------------------------
 
@@ -397,8 +459,8 @@ INSERT INTO `users` (`id`, `nom`, `prénom`, `email`, `mot_de_passe`, `createdAt
 --
 
 CREATE TABLE `user_roles` (
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `roleId` int NOT NULL,
   `userId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -409,7 +471,15 @@ CREATE TABLE `user_roles` (
 
 INSERT INTO `user_roles` (`createdAt`, `updatedAt`, `roleId`, `userId`) VALUES
 ('2021-05-28 12:34:27', '2021-05-28 12:34:27', 1, 1),
-('2021-05-28 12:34:27', '2021-05-28 12:34:27', 2, 1);
+('2021-06-02 09:24:50', '2021-06-02 09:24:50', 1, 2),
+('2021-06-02 09:25:44', '2021-06-02 09:25:44', 1, 3),
+('2021-06-02 09:26:10', '2021-06-02 09:26:10', 1, 4),
+('2021-06-02 09:27:29', '2021-06-02 09:27:29', 1, 5),
+('2021-05-28 12:34:27', '2021-05-28 12:34:27', 2, 1),
+('2021-06-02 09:24:50', '2021-06-02 09:24:50', 2, 2),
+('2021-06-02 09:25:44', '2021-06-02 09:25:44', 2, 3),
+('2021-06-02 09:26:10', '2021-06-02 09:26:10', 2, 4),
+('2021-06-02 09:27:29', '2021-06-02 09:27:29', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -420,8 +490,8 @@ INSERT INTO `user_roles` (`createdAt`, `updatedAt`, `roleId`, `userId`) VALUES
 CREATE TABLE `villes` (
   `id` int NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `etatId` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -617,13 +687,13 @@ ALTER TABLE `villes`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `continents`
@@ -647,7 +717,7 @@ ALTER TABLE `universites`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `villes`
