@@ -56,15 +56,15 @@ export default {
   background-color: transparent;
   padding: 5px 20px;
   margin: 0 20px;
-  border: 3px solid black;
+  border: 3px solid #1B1B52;
   border-radius: 6px;
   font-weight: 500;
 }
 
 .first button:hover{
-  background-color: black;
+  background-color: #1B1B52;
   color:white;
-  border: 1px solid black;
+  border: 1px solid #1B1B52;
 }
 
 
@@ -72,7 +72,8 @@ export default {
   font-size: 1.2em;
   margin: 0 20px;
   font-weight: 700;
-}
+  color: #1B1B52;
+  }
 
 .second {
   display: block;
