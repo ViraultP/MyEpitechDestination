@@ -21,7 +21,7 @@ require('./app/routes/user.routes')(app);
 require('./app/routes/article.routes')(app);
 require('./app/routes/search.routes')(app);
 require('./app/routes/filtre.routes')(app);
-
+require('./app/routes/lastarticle.routes')(app);
 
 db.sequelize.sync();
 

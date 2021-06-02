@@ -5,6 +5,15 @@
       <SearchBar />
     </header>
     <Footer />
+       <div v-for="article in lastArticle.data" :key="article.id">
+      <div>{{ article.auteur }}</div>
+      <div>{{ article.titre }}</div>
+      <br />
+      <div>{{ article.description }}</div>
+      <br />
+      <div>
+        <img :src="'http://localhost:8080/' + article.image" width="250" />
+      </div>
   </div>
 </template>
 
@@ -19,6 +28,7 @@ export default {
     SearchBar,
     Header,
     Footer,
+    lastArticle: [],
   },
 };
 </script>
