@@ -107,6 +107,7 @@ export default {
     font-family: 'Lato';
     
 } 
+
 .header button{
   background-color: transparent;
   border: 2px solid #85C4AF;
@@ -123,7 +124,6 @@ export default {
   padding: 0 10px;
   background-color: transparent;
 }
-
 
 .table-header{
   border: hidden;
@@ -167,8 +167,7 @@ export default {
 }
 
 .table-row-modif .delete i{
-  color: red;
+  color: #C40002;
 }
-
 
 </style>

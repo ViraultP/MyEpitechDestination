@@ -2,9 +2,6 @@
     <div class="container">
        <BoardAdmin />
        <div class="container">
-        <!-- <div class="create-article">
-          <router-link to="/createarticle"><button><i class="fa fa-plus" aria-hidden="true">Créer un nouvel article</i></button></router-link>
-        </div> -->
         <div class="header">
           <h1>Liste des articles</h1>
           <router-link to="/createarticle"><button><i class="fa fa-plus" aria-hidden="true">Créer un nouvel article</i></button></router-link>
@@ -110,6 +107,7 @@ export default {
     font-family: 'Lato';
     
 } 
+
 .header button{
   background-color: transparent;
   border: 2px solid #85C4AF;
@@ -126,10 +124,6 @@ export default {
   padding: 0 20px;
   background-color: transparent;
 }
-/* 
-.table{
-  border-collapse: separate;
-} */
 
 .table-header{
   border: hidden;
@@ -143,7 +137,7 @@ export default {
 
 .table-body{
   border-bottom: 10px solid white;
-  background-color: #E5E5E5;
+  background-color: #e5e5e575;
   margin-bottom: 100px;
 }
 
@@ -181,9 +175,8 @@ export default {
 }
 
 .table-row-modif .delete i{
-  color: red;
+  color: #C40002;
 }
-
 
 </style>
 

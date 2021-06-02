@@ -1,11 +1,6 @@
 <template>
    <div>
      <BoardAdmin />
-        <!-- <h4 class="text-center mt-20">
-            <small>
-            <button class="btn btn-success" v-on:click="navigate()"> Profil </button>
-            </small>
-        </h4> -->
         <div class="back">
             <router-link to ="/crudUtilisateurs"><button class="button-back">Retour</button></router-link>
           </div>
@@ -88,6 +83,7 @@ export default {
   padding: 5px 15px;
   font-family: 'Lato';
 }
+
 .button-back:hover{
   background-color: black;
   color:white;

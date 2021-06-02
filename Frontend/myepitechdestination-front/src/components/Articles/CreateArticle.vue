@@ -123,6 +123,7 @@ export default {
   padding: 5px 15px;
   font-family: 'Lato';
 }
+
 .button-back:hover{
   background-color: black;
   color:white;
@@ -220,84 +221,5 @@ export default {
   background-color: transparent;
   color: #85c4af;
 }
-
-
-
-/* .info h2{
-    font-family:'Bebas Neue', cursive;
-    font-size: 2.2em;
-} */
-
-/* .col-md-12{
-  display: flex;
-  align-items: baseline;
-  text-align: center;
-}
-
-.info input, textarea, select{
-    margin: 0 30px;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #e4e4ec;
-    border-radius: 0;
-    margin-bottom: 60px;
-    width: 400px;
-}
-
-.info textarea{
-    resize: none;
-    border: 2px solid #e4e4ec;
-}
-
-.info select{
-  width: 200px;
-}
-
-.image{
-
-  display: inline-flex;
-}
-
-.image input {
-  border: none;
-}
-
-.info input:hover{
-    border-bottom: 2px solid #85c4af;
-}
-
-.image input:hover {
-  border: none;
-}
-
-.button{
-  text-align: center;
-}
-
-.info button {
-    width: 190px;
-    height: 50px;
-    border-radius: 8px;
-    border: none;
-    background-color: #85c4af;
-    color: white;
-    font-weight: bold;
-    font-size: 1em;
-    outline: none;
-    margin: 0 auto;
-}
-
-.info button a{
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 19px;
-}
-
-.info button:hover{
-  border: 2px solid #85c4af;
-  background-color: transparent;
-  color: #85c4af;
-} */
 
 </style>

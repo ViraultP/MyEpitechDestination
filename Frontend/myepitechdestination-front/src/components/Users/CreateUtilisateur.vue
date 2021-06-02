@@ -89,6 +89,7 @@ export default {
   padding: 5px 15px;
   font-family: 'Lato';
 }
+
 .button-back:hover{
   background-color: black;
   color:white;

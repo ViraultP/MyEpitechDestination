@@ -1,37 +1,39 @@
 <template>
   <div class="container">
-    <header>
-      <h3>
-       Bonjour  <strong>{{currentUser.prénom}}</strong> !
-      </h3>
-    </header>
-    <!-- <p>
-      <strong>Token:</strong>
-      {{currentUser.accessToken.substring(0, 20)}} ... {{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}}
-    </p>
-    <p>
-      <strong>Id:</strong>
-      {{currentUser.id}}
-    </p> -->
-    <div>
-      <a href="/"><button><font-awesome-icon icon="sign-out-alt" /> home</button></a>
-    </div>
-    <p>
-      <strong>Vous êtes connecté en tant que :</strong>
-      {{currentUser.email}}
-    </p>
-    <strong>Authorities:</strong>
-    <ul>
-      <li v-for="role in currentUser.roles" :key="role">{{role}}</li>
-    </ul>
+    <div class="nav">
+        <h4>Profile</h4>
+        <div class="button">
+          <a href="/"><button>Accueil<i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
+        </div> 
+      </div>
 
-    
-    <div class="logout">
-      <a class="nav-link" @click.prevent="logOut">
-      <button><font-awesome-icon icon="sign-out-alt" /> Se déconnecter</button>
-    </a>
+    <div class="sidebar">
+      <img src="../assets/user.svg" alt="" width="30" height="30" />
+      <h3>Bonjour {{currentUser.prénom}}</h3>
+      <hr>
+      <ul>
+        <li>Vos articles</li>
+        <li>Vos favoris</li>
+
+      </ul>
+      <div class="logout">
+        <a class="nav-link" @click.prevent="logOut">
+          <button><font-awesome-icon icon="sign-out-alt" /> Se déconnecter</button>
+        </a>
+      </div>
     </div>
-    
+
+    <div class="informations">
+      <h4 class="title-info">Vos informations</h4>
+      <div class="infos">
+        <ul>
+          <li>Email : {{currentUser.email}} </li>
+          <li  v-for="role in currentUser.roles" :key="role">Rôle : {{role}} </li>
+          <li>Id : {{currentUser.id}}</li>
+      </ul>
+      </div>
+      
+    </div>
   </div>
 </template>
 
@@ -59,47 +61,120 @@ export default {
 
 <style scoped>
 
-.container{
-  margin: 0 auto;
+.container {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr  1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "sidebar nav nav nav"
+    "sidebar informations informations informations"
+    "sidebar informations informations informations";
+}
+.nav {
+  grid-area: nav; 
+  background-color: #e5e5e575;
+  height: 100px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 10px;
-  border-radius: 15px;
+  align-items: center;
 }
 
-h3{
+.nav h4{
+  margin: 0 15px;
+  font-size: 1.3em;
+  color: #7F7F7F;
+}
+
+.button {
+  margin: 0 15px;
+  flex: 1;
+  text-align: right;
+}
+
+.button button{
+  background-color: #85C4AF;
+  border: 2px solid #85C4AF;
+  color: white;
+  border-radius: 6px;
+  padding: 5px 10px;
   font-family: 'Lato';
-  font-size: 2.3em;
-  text-align: center;
+  font-weight: 500;
+  font-size: 1.2em;
 }
 
-.logout{
-  text-align: center;
+.fa-arrow-right{
+  padding: 0 20px
 }
 
-.logout button{
-    width: 190px;
-    height: 50px;
-    border-radius: 8px;
-    border: none;
-    background-color: #85c4af;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    outline: none;
-}
-
-.logout button a{
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 19px;
-}
-
-.logout button:hover{
-  border: 2px solid #85c4af;
+.button button:hover{
   background-color: transparent;
-  color: #85c4af;
+  border: 2px solid #85C4AF;
+  color:#85C4AF;
 }
 
+.sidebar { 
+  grid-area: sidebar; 
+  background-color: #a8a7a775;
+  text-align: center;
+}
+
+.sidebar img {
+  margin: 20px 0;
+}
+.sidebar h3{
+  font-size: 1.6em;
+}
+
+.sidebar ul{
+  list-style: none;
+}
+
+.sidebar ul li{
+  margin: 10px 0;
+  font-size:1.2em;
+  padding: 10px 0;
+  
+}
+
+.sidebar ul li:hover{
+  background-color: #e5e5e5;
+}
+
+.sidebar .logout{
+  margin-top: 300px;
+  margin-bottom: 25px;
+}
+
+.sidebar .logout button{
+  background-color: #1B1B52;
+  border-radius: 6px;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+}
+
+.informations { 
+  grid-area: informations; 
+}
+
+.informations .title-info{
+  font-size: 1.4em;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.infos {
+ text-align: center;
+}
+
+.infos ul{
+  list-style: none;
+}
+
+.infos ul li{
+  line-height: 40px;
+  text-align: justify;
+  font-size: 1.1em
+}
 </style>

@@ -54,11 +54,17 @@ export default {
 
 .first button{
   background-color: transparent;
-  padding: 0 20px;
+  padding: 5px 20px;
   margin: 0 20px;
   border: 3px solid black;
   border-radius: 6px;
   font-weight: 500;
+}
+
+.first button:hover{
+  background-color: black;
+  color:white;
+  border: 1px solid black;
 }
 
 
