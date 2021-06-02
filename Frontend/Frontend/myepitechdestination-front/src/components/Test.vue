@@ -1,21 +1,15 @@
 <template>
-    <div>
+  <div>
     <p>hello from test</p>
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Test',
-}
+  name: "Test",
+};
 // import $ from "jquery";
-
-
-
-
 </script>
 
 <style scoped>
-
-
 </style>

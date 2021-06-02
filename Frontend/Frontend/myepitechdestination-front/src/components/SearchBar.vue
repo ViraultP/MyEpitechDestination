@@ -1,54 +1,33 @@
 <template>
   <div>
-    <div id="autocomplete" class="autocomplete">
-      <div class="autocomplete" style="">
-        <input
-          type="text"
-          name=""
-          placeholder="Explore"
-          v-model="query"
-          @keyup="searchBar(query)"
-        />
-        <div v-for="article in data.data" :key="article">
-          {{ article.titre }}
-          {{ article.description }}
-          <img :src="'http://localhost:8080/' + article.image" width="250" />
-        </div>
-        <select v-model="continent" @change="getByContinent()">
-          <option v-for="continent in continents.data" :key="continent.id">
-            {{ continent.continent }}
-          </option></select
-        ><br />
-        <div v-for="country in countries.data" :key="country.id">
-          <select v-model="pays" @change="getByPays()">
-            <option v-for="pays in country.etats" :key="pays.id">
-              {{ pays.pays }}
-            </option></select
-          ><br />
-        </div>
-        <div>
-          <select v-model="ville" @change="getByVille()">
-            <option v-for="ville in ville.data" :key="ville.id">
-              {{ ville.nom }}
-            </option></select
-          ><br />
-        </div>
-        <div>
-          <select v-model="universite" @change="getByUniversite()">
-            <option v-for="ecole in universite.data" :key="ecole.id">
-              {{ ecole.nom }}
-            </option></select
-          ><br />
-        </div>
-        <div v-for="article in articles.data" :key="article.id">
-          <div>{{ article.titre }}</div>
-          <br />
-          <div>{{ article.description }}</div>
-          <br />
-          <div>
+    <div class="container searchbar">
+      <div class="row">
+        <div class="nav justify-content-center">
+          <input
+            type="text"
+            name=""
+            placeholder="Explore"
+            v-model="query"
+            @keyup="searchBar(query)"
+          />
+          <div v-for="article in data.data" :key="article">
+            {{ article.titre }}
+            {{ article.description }}
             <img :src="'http://localhost:8080/' + article.image" width="250" />
           </div>
-          <br />
+          <div v-for="article in articles.data" :key="article.id">
+            <div>{{ article.titre }}</div>
+            <br />
+            <div>{{ article.description }}</div>
+            <br />
+            <div>
+              <img
+                :src="'http://localhost:8080/' + article.image"
+                width="250"
+              />
+            </div>
+            <br />
+          </div>
         </div>
       </div>
     </div>
@@ -88,11 +67,6 @@ export default {
     );
   },
   created() {
-    this.getByUniversite();
-    this.getAllcontinent();
-    this.getByVille();
-    this.getByPays();
-    this.getByContinent();
     this.searchBar();
   },
   methods: {
@@ -162,53 +136,22 @@ export default {
 body {
   font-family: "Lato";
 }
-.autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-  width: 1000px;
-}
 input {
-  border: 1px solid black;
+  border: 2px solid #85c4af;
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
   border-radius: 50px;
+  position: center;
 }
 input[type="text"] {
   background-color: #f1f1f1;
-  width: 100%;
-}
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid black;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: black;
-}
-.autocomplete-items div:hover {
-  /*when hovering an item:*/
-  background-color: #e9e9e9;
-}
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00b4cc;
-  background: #00b4cc;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+  background-position: 99% 100%;
+  background-color: #f1f1f1;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 50px;
+  width: 700px;
+  text-align: left;
 }
 </style>
-

@@ -1,56 +1,55 @@
 <template>
   <div class="container">
-      <nav class="navbar">
-        <div class="navbar-left">
-          <a class="active-link" href="#">Admin</a>
-        </div>
-        <div class="navbar-right">
-          <a href="/">
-           <button>ACCUEIL</button>
-          </a>
-        </div>
-      </nav>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a class="active-link" href="#">Admin</a>
+      </div>
+      <div class="navbar-right">
+        <a href="/">
+          <button>ACCUEIL</button>
+        </a>
+      </div>
+    </nav>
 
-      <main>
-        <div class="main-container">
-          <div class="main-title">
-            <div class="main-text">
-              <h1>Gestion des utilisateurs</h1>
-            </div>
+    <main>
+      <div class="main-container">
+        <div class="main-title">
+          <div class="main-text">
+            <h1>Gestion des utilisateurs</h1>
           </div>
+        </div>
 
-          <div class="crud">
-            <div class="crud-right">
-              <div class="crud-right-title">
-                <div>
-                  <h1>Main</h1>
-                  <p></p>
-                </div>
+        <div class="crud">
+          <div class="crud-right">
+            <div class="crud-right-title">
+              <div>
+                <h1>Main</h1>
+                <p></p>
               </div>
             </div>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
 
-      <div id="sidebar">
-        <div class="sidebar-title">
-            <h1>Dashboard</h1>
+    <div id="sidebar">
+      <div class="sidebar-title">
+        <h1>Dashboard</h1>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="sidebar-link">
+          <a href="#">Utisateurs</a>
         </div>
-
-        <div class="sidebar-menu">
-      
-          <div class="sidebar-link">
-            <a href="#">Utisateurs</a>
-          </div>
-          <div class="sidebar-link">
-            <a href="#">Articles</a>
-          </div>
-          <div class="sidebar-link">
-            <a href="#">Commentaires</a>
-          </div>
+        <div class="sidebar-link">
+          <a href="#">Articles</a>
+        </div>
+        <div class="sidebar-link">
+          <a href="#">Commentaires</a>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -82,8 +81,8 @@ export default {
 </script>
 
 <style scoped>
-*{
-  font-family: 'Lato';
+* {
+  font-family: "Lato";
 }
 
 * {
@@ -94,7 +93,6 @@ export default {
 body {
   box-sizing: border-box;
 }
-
 
 .container {
   display: grid;
@@ -117,7 +115,7 @@ body {
   border-bottom: 1px solid lightgray;
 }
 
-.navbar-left a{
+.navbar-left a {
   margin-right: 30px;
   text-decoration: none;
   color: #a5aaad;
@@ -131,9 +129,9 @@ body {
   align-items: center;
 }
 
-.navbar-right button{
+.navbar-right button {
   background-color: transparent;
-  border: 1px solid #85C4AF;
+  border: 1px solid #85c4af;
   border-radius: 15px;
   padding: 10px 20px;
   font-weight: 700;
@@ -198,10 +196,9 @@ main {
 
 .crud-right-title h1 {
   font-size: 24px;
-  color: red;;
+  color: red;
   margin-bottom: 5px;
 }
-
 
 .crud-right-cards {
   display: grid;
@@ -212,7 +209,7 @@ main {
 
 /* *****************************************************/
 #sidebar {
-  background: #F2F2F2;
+  background: #f2f2f2;
   grid-area: sidebar;
   overflow-y: auto;
   padding: 0px;
@@ -232,11 +229,10 @@ main {
   padding: 20px 10px;
   border-radius: 3px;
   margin-bottom: 5px;
-  
 }
 
-.sidebar-link:hover{
-  background-color: #85C4AF;
+.sidebar-link:hover {
+  background-color: #85c4af;
   color: black;
 }
 
@@ -296,7 +292,4 @@ main {
     display: none;
   }
 }
-
-
-
 </style>
