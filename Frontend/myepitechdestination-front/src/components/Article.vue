@@ -35,13 +35,18 @@
       <div class="container">
         <div class="comment">
           <h1>Laisser un commentaire</h1>
-          <form action="" class="create-comment">
-            <label class="nom" for="name">Nom</label>
-            <input type="text">
+          <form @submit.prevent="createCommentaire" class="create-comment">
+              <div class="name">
+                <input v-model='nom' type="text" placeholder="Entrer votre nom">
+              </div>
             <div class="row">
-              <textarea placeholder="Ecrire un commentaire..." type="text"/>
+              <textarea v-model='commentaire' placeholder="Ecrire un commentaire..." type="text"/>
             </div>
-            <button>Envoyer</button>
+            <div class="id">
+              <input class="id" v-model='article.id' readonly='true'>
+            </div>
+            
+            <button type="submit" >Envoyer</button>
           </form>
         </div>
       </div>
@@ -75,6 +80,7 @@ export default {
   data () {
     return {
       article: {},
+      commentaires: {},
     }
   },
   created(){
@@ -86,7 +92,18 @@ export default {
        .get('http://localhost:8080/api/articles/'+ this.$route.params.id)
       .then(data => (this.article = data.data));
       console.log(this.article)
-      }
+      },
+
+      createCommentaire(){
+        axios.post('http://localhost:8080/api/commentaires',{nom:this.nom, commentaire:this.commentaire, articleId:this.article.id})
+        .then((response)=>{this.nom='';
+        this.commentaire='';
+        this.fetcharticle();
+        console.log(response);})
+        .catch((err) => {
+          console.log(err)
+        })
+      },
     }
 
 };
@@ -180,26 +197,39 @@ export default {
   font-family: 'Lato';
 }
 
+.id{
+  display : none;
+}
+
 .create-comment .nom {
   font-size: 1.2em;
 }
 
-.create-comment input{
+.name{
   display: flex;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid black;
-  margin-bottom: 15px;
+}
+
+.name input {
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 15px;
+  height: 35px;
 }
 
 .create-comment textarea{
+  border: 2px solid black;
+  border-radius: 6px;
   resize: none;
+  width: 80%;
   height: 150px;
+  margin: 15px;
 }
 
 .create-comment button{
   margin: 20px 0;
   background-color: #85C4AF;
+  border-radius: 6px;
   padding: 10px 20px;
   color: white;
   border: none; 

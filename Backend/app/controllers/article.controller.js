@@ -175,13 +175,9 @@ exports.createCommentaire = (req, res) => {
 
     Commentaire.create(commentaire)
     .then( data => {
-        var condition = {userId: id};
-        User.findAll({ where: condition })
-        .then(commentaire =>
             {
-                commentaire.dataValues["utilisateur"] = commentaire
                 res.send(data);
-            }) 
+            }
     })
     .catch(err => {
         res.status(500).send({
@@ -190,6 +186,35 @@ exports.createCommentaire = (req, res) => {
         })
     })
 },
+
+exports.findAllCommentaires = (req, res) => {
+    Commentaire.findAll()
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
+        res.status(500).send({
+            message :
+            err.message || "Une erreur s'est produite lors de la récupération des commentaires."
+        });
+    });
+}
+
+// Find a single user with an id
+exports.findOneCommentaire = (req, res) => {
+    const id = req.params.id;
+
+    Commentaire.findByPk(id)
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
+        res.status(500).send({
+            message : 
+            err.message || "Erreur lors de la récupération du commentaire avec l'identifiant: " +id
+        });
+    }); 
+};
 
 // Delete comment by id
 exports.deleteCommentaire = (req, res) => {

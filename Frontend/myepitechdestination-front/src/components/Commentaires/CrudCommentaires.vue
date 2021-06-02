@@ -2,18 +2,16 @@
     <div class="container">
       <BoardAdmin />
       <div class="container">
-      <div class="header">
-
+        <div class="header">
           <h1>Liste des commentaires</h1>
         </div>
-
        <div v-if="commentaires.length === 0">
             <h2> Pas de commentaire trouvé pour le moment </h2>
         </div>
 
         <div class="tableau">
             <table class="table">
-              <thead class="thead-dark">
+              <thead class="table-header">
                 <tr>
                   <th scope="col">id</th>
                   <th scope="col">Nom Prénom</th>
@@ -25,10 +23,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="commentaire in commentaires" :key="commentaire.id">
+                <tr v-for="commentaire in commentaires" :key="commentaire.id" class="table-body">
                   <td>{{ commentaire.id }}</td>
                   <td>{{ commentaire.nom }}</td>
-                  <td>{{ commentaire.commentaire }}</td>
+                  <td class="table-description">{{ commentaire.commentaire }}</td>
                   <td>{{ commentaire.articleId }}</td>
                   <td>{{ commentaire.createdAt }}</td>
                   <td>{{ commentaire.updatedAt }}</td>
@@ -86,7 +84,6 @@ export default {
 </script>
 
 <style scoped>
-
 .header{
     height: 12%;
     display: flex;
@@ -102,7 +99,7 @@ export default {
 .header a{
     flex: 1;
     text-align: right;
-    font-family: 'Bebas Neue';
+    font-family: 'Lato';
     
 } 
 
@@ -137,6 +134,18 @@ export default {
   border-bottom: 10px solid white;
   background-color: #e5e5e575;
   margin-bottom: 100px;
+}
+
+.table-id {
+  font-weight: lighter;
+}
+
+.table-title {
+  font-weight: bold;
+}
+
+.table-description {
+  text-align: justify;
 }
 
 .table-row-modif{

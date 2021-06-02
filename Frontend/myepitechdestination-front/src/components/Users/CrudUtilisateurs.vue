@@ -109,16 +109,18 @@ export default {
 } 
 
 .header button{
+  
   background-color: transparent;
   border: 2px solid #85C4AF;
   border-radius: 6px;
-  padding: 10px 15px;
+  padding: 10px 0;
 }
 
 .header button:hover{
   background-color: #85C4AF;
   padding: 10px 15px;
 }
+
 
 .header a i{
   padding: 0 10px;

@@ -34,4 +34,10 @@ app.put("/api/commentaires/:id", controller.updateCommentaire);
  
 // Supprimer un commentaire par son id
 app.delete("/api/commentaires/:id", controller.deleteCommentaire);
+
+//Récuperer tous les articles et leur commentaires
+app.get("/api/commentaires", controller.findAllCommentaires);
+
+// Récuperer un article par son id avec ses commentaires.
+app.get("/api/commentaires/:id", controller.findOneCommentaire);
 }
