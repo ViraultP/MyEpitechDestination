@@ -5,14 +5,6 @@
         <strong>{{ currentUser.username }}</strong> Profile
       </h3>
     </header>
-    <!-- <p>
-      <strong>Token:</strong>
-      {{currentUser.accessToken.substring(0, 20)}} ... {{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}}
-    </p>
-    <p>
-      <strong>Id:</strong>
-      {{currentUser.id}}
-    </p> -->
     <div>
       <a href="/"
         ><button><font-awesome-icon icon="sign-out-alt" /> home</button></a
@@ -20,7 +12,7 @@
     </div>
     <p>
       <strong>Vous êtes connecté en tant que :</strong>
-      {{ currentUser.email }}
+      {{ currentUser.prénom + currentUser.nom}}
     </p>
     <strong>Authorities:</strong>
     <ul>
@@ -102,3 +94,4 @@ h3 {
   background-color: transparent;
   color: #85c4af;
 }
+</style>

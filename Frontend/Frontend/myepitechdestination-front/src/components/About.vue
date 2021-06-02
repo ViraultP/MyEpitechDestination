@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <header class="jumbotron">
-      <p>Components Home.vu</p>
       <h3>{{ content }}</h3>
     </header>
   </div>

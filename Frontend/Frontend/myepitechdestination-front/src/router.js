@@ -106,6 +106,10 @@ const routes = [
     path: "/article/:id",
     component: Article,
   },
+  {
+    path: "/contact",
+    component: Contact,
+  }
 ];
 
 const router = createRouter({

@@ -47,7 +47,7 @@
           {{ article.titre }}
         </div>
         <div class="image">
-          <img :src="'http://localhost:8080/' + article.image" width="250" />
+          <img :src="'https://my-epitech-destination-api.herokuapp.com/' + article.image" width="250" />
         </div>
         <div class="button">
           <a :href="'/article/' + article.id"

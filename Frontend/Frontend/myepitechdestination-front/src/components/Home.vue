@@ -14,17 +14,15 @@
     </div>
     <div class="titre"><h1>Les articles récents</h1></div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div v-for="article in articles" v-bind:key="article.id" class="col">
+      <div v-for="article in articles.data" v-bind:key="article.id" class="col">
         <div id="card" class="card h-100">
           <a :href="'/article/' + article.id"
-            ><img :src="'http://localhost:8080/' + article.image" width="400"
+            ><img :src="'https://my-epitech-destination-api.herokuapp.com/' + article.image"
           /></a>
-
           <div class="card-body">
             <div class="title-heart">
               <h5 class="card-title">{{ article.titre }}</h5>
-            </div>
-            <p class="card-text">Prénom Nom | 06 Juillet 2020</p>
+            </div><br>
           </div>
         </div>
       </div>
@@ -34,7 +32,6 @@
 </template>
 
 <script>
-import UserService from "../services/user.service";
 import Header from "@/components/Header.vue";
 import SearchBar from "./SearchBar";
 import Footer from "@/components/Footer.vue";
@@ -53,13 +50,14 @@ export default {
     };
   },
   created() {
-    this.fetcharticles();
+    this.getLastArticle();
   },
   methods: {
-    fetcharticles() {
-      axios
-        .get("http://localhost:8080/api/articles")
-        .then((data) => (this.articles = data.data));
+   getLastArticle() {
+      axios.get("https://my-epitech-destination-api.herokuapp.com/api/lastarticles").then((resp) => {
+        this.articles = resp;
+        console.log(this.data.data);
+      });
     },
   },
 };
@@ -93,5 +91,18 @@ export default {
 .titre h1 {
   font-family: "Lato";
   font-weight: lighter;
+}
+a
+{
+  width: 300px;
+  height: 250px;
+}
+img
+{
+  width: 100%;
+}
+.card-body
+{
+  height: 30px;
 }
 </style>

@@ -99,7 +99,7 @@ export default {
       //requete d'une universite pour recupere les article associer
       axios
         .get(
-          "http://localhost:8080/api/filteruniversite?universite=" +
+          "https://my-epitech-destination-api.herokuapp.com/api/filteruniversite?universite=" +
             this.universite
         )
         .then((resp) => {
@@ -108,14 +108,14 @@ export default {
     },
     getAllcontinent() {
       //requete de tout les continent
-      axios.get("http://localhost:8080/api/filter/continent").then((resp) => {
+      axios.get("https://my-epitech-destination-api.herokuapp.com/api/filter/continent").then((resp) => {
         this.continents = resp;
       });
     },
     getByVille() {
       //requete par une ville pour récuperer une université
       axios
-        .get("http://localhost:8080/api/filterville?ville=" + this.ville)
+        .get("https://my-epitech-destination-api.herokuapp.com/api/filterville?ville=" + this.ville)
         .then((resp) => {
           this.universite = resp;
         });
@@ -123,7 +123,7 @@ export default {
     getByPays() {
       //requete par un pays pour recuperer une ville
       axios
-        .get("http://localhost:8080/api/filterpays?pays=" + this.pays)
+        .get("https://my-epitech-destination-api.herokuapp.com/api/filterpays?pays=" + this.pays)
         .then((resp) => {
           this.ville = resp;
         });
@@ -131,7 +131,7 @@ export default {
     getByContinent() {
       axios
         .get(
-          "http://localhost:8080/api/filtercontinent?continent=" +
+          "https://my-epitech-destination-api.herokuapp.com/api/filtercontinent?continent=" +
             this.continent
         )
         .then((resp) => {
@@ -141,7 +141,7 @@ export default {
     },
     searchBar(query) {
       axios
-        .get("http://localhost:8080/api/search?recherche=" + query)
+        .get("https://my-epitech-destination-api.herokuapp.com/api/search?recherche=" + query)
         .then((resp) => {
           this.data = resp;
           console.log(this.data.data);

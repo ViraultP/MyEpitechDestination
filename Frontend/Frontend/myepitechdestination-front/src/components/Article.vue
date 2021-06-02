@@ -10,7 +10,7 @@
     </div>
 
     <div class="row image">
-      <img :src="'http://localhost:8080/' + article.image" width="400" />
+      <img :src="'https://my-epitech-destination-api.herokuapp.com/' + article.image" width="400" />
     </div>
     <div class="row infos">
       <p>10 janvier 2020 | Prénom Nom</p>
@@ -87,7 +87,7 @@ export default {
   methods: {
     fetcharticle() {
       axios
-        .get("http://localhost:8080/api/articles/" + this.$route.params.id)
+        .get("https://my-epitech-destination-api.herokuapp.com/api/articles/" + this.$route.params.id)
         .then((data) => (this.article = data.data));
       console.log(this.article);
     },
