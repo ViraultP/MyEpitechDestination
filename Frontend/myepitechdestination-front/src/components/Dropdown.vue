@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div class="container all-dropdown">
       <div class="row">
         <div class="col-sm dropdown">
@@ -148,33 +147,11 @@ export default {
       }
 }
 
-=======
-
-    <div class="dropdown">
-       <ul v-show="list.open" class="nav justify-content-center">
-        
-        <li class="nav-item" v-for="(item, index) in list.subnav" :key="'item'+index">
-        <a class="nav-link continent" href="#" @click="item.open = !item.open">{{item.title}}</a>
-        <Dropdown v-if="item.subnav" :list="item"/>
-        </li>
-      </ul>
-    </div>
-
-</template>
-
-<script>
-export default {
-    name: 'Dropdown',
-    props: [
-        'list'
-    ]
->>>>>>> Back-End
 }
 </script>
 
 <style scoped>
 
-<<<<<<< HEAD
 .all-dropdown{
   padding: 0 80px;
 }
@@ -239,6 +216,4 @@ export default {
 }
 
 
-=======
->>>>>>> Back-End
 </style>

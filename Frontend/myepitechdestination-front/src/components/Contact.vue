@@ -1,10 +1,7 @@
 <template>
-<<<<<<< HEAD
 <div class="container">
     <Header />
 
-=======
->>>>>>> Back-End
     <div class="contact_container">
         <div class="row all_contact">
             <h1>Conctater Nous</h1>
@@ -61,7 +58,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     <Footer />
     </div>
     </div>                   
@@ -78,17 +74,6 @@ export default {
   },
 }
 
-=======
-
-    </div>
-                       
-</template>
-
-<script>
-export default {
-    name: 'Contact'
-}
->>>>>>> Back-End
 import $ from "jquery";
 
 $(document).ready ( function () 
@@ -117,11 +102,7 @@ $(document).ready ( function ()
     background-color: white;
     padding: 30px 10px;
     border-radius: 15px;
-<<<<<<< HEAD
   
-=======
-    box-shadow: 0 10px 50px -10px #d6d6d6;
->>>>>>> Back-End
 }
 /* .contact img{
     size: cover;

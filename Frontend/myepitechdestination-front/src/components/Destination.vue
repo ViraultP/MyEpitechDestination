@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-<<<<<<< HEAD
       <Header />
       <Dropdown />
       <div class="header">
@@ -20,6 +19,7 @@
                 <h5 class="card-title">{{article.titre}}</h5>
                 <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
               </div>
+              <p class="card-text">{{article.auteur}}</p>
               <p class="card-text">Prénom Nom  |  10 janvier 2020</p>
               <!-- <ul class="stars">
                 <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
@@ -35,33 +35,10 @@
         
       </div>
       <Footer />
-=======
-
-        <div class="header">
-            <p>Les bons plans</p>
-            <div class="button">
-                <button>Voir 9 / page</button>
-            </div>
-            
-        </div>
-        
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
->>>>>>> Back-End
     </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import Header from '@/components/Header.vue'
 import Dropdown from './Dropdown'
 import Footer from '@/components/Footer.vue'
@@ -89,25 +66,17 @@ export default {
       .then(data => (this.articles = data.data));
       }
     }
-
-  
 };
+
 </script>
 
 
 <style scoped>
 
-=======
-
-</script>
-
-<style scoped>
->>>>>>> Back-End
 .header{
     height: 12%;
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     margin-bottom: 50px;
 }
 .header h4{
@@ -196,25 +165,4 @@ export default {
   color: #85C4AF;
 }
 
-=======
-}
-
-.button{
-    flex: 1;
-    text-align: right;
-    
-}
-
-.button button{
-    width: 190px;
-    height: 50px;
-    border-radius: 8px;
-    border: 2px solid #85c4af;
-    background-color: white;
-    color: #85c4af;
-    font-weight: bold;
-    font-size: 1.2em;
-    outline: none;
-}
->>>>>>> Back-End
 </style>

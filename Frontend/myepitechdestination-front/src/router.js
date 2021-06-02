@@ -32,15 +32,6 @@ const routes = [
     path: "/home",
     component: Home,
   },
-<<<<<<< HEAD
-
-=======
-  
-  {
-    path: "/navtest",
-    component: NavTest,
-  },
->>>>>>> Back-End
   {
     path: "/login",
     component: Login,
@@ -58,13 +49,10 @@ const routes = [
     component: Destination,
   },
   {
-<<<<<<< HEAD
     path: "/article/:id",
     component: Article,
   },
   {
-=======
->>>>>>> Back-End
     path: "/profile",
     name: "profile",
     component: Profile,

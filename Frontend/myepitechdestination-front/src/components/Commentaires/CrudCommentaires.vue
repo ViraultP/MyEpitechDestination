@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid">
+      <BoardAdmin />
       <div class="text-center">|
         <router-link to ="/admin">Retourner au panel admin</router-link>
       </div><br/>
@@ -7,7 +8,6 @@
        <div v-if="commentaires.length === 0">
             <h2> Pas de commentaire trouvé pour le moment </h2>
         </div>
-      </div>
         <div class="">
             <table class="table table-bordered">
               <thead class="thead-dark">
@@ -41,12 +41,19 @@
               </tbody>
             </table>
           </div>
+      </div>
+        
 </template>
 
 <script>
+import BoardAdmin from '@/components/BoardAdmin.vue'
 import axios from "axios";
+
 export default {
     name : "CrudCommentaires",
+     components: {
+      BoardAdmin,
+    },
   data() {
     return {
       commentaires: {},

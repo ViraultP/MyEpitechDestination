@@ -1,5 +1,6 @@
 <template>
    <div>
+     <BoardAdmin />
         <h4 class="text-center mt-20">
             <small>
             <button class="btn btn-success" v-on:click="navigate()"> Retourner au profil </button>
@@ -30,10 +31,14 @@
 
 <script>
 import axios from "axios";
+import BoardAdmin from '@/components/BoardAdmin.vue'
 import router from "../../router";
 export default {
     
   name: 'ModifUser',
+   components: {
+      BoardAdmin,
+    },
   data() {
     return {
       id: 0,
