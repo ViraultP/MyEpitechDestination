@@ -10,7 +10,10 @@ import CrudArticles from './components/Articles/CrudArticles.vue';
 import EditArticles from './components/Articles/EditArticles.vue';
 import CreateArticle from './components/Articles/CreateArticle.vue';
 import CrudCommentaires from './components/Commentaires/CrudCommentaires.vue';
-import EditCommentaire from './components/Commentaires/EditCommentaire.vue'
+import EditCommentaire from './components/Commentaires/EditCommentaire.vue';
+import Destination from "./components/Destination.vue";
+import Article from "./components/Article.vue";
+import Contact from "./components/Contact.vue";
 
 
 const Profile = () => import("./components/Profile.vue")
@@ -26,6 +29,10 @@ const routes = [
   {
     path: "/home",
     component: Home,
+  },
+  {
+    path: "/destination",
+    component: Destination,
   },
   {
     path: "/login",
@@ -95,6 +102,10 @@ const routes = [
     name: 'EditCommentaire',
     component: EditCommentaire
   },
+  {
+    path: "/article/:id",
+    component: Article,
+  },
 ];
 
 const router = createRouter({
@@ -112,5 +123,4 @@ router.beforeEach((to, from, next) => {
       next();
     }
   });
-
 export default router;
