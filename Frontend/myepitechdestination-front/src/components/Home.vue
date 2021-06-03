@@ -57,7 +57,7 @@ export default {
   methods: {
     fetcharticles() {
       axios
-        .get("http://localhost:8080/api/articles")
+        .get("http://localhost:8080/api/lastarticles")
         .then((data) => (this.articles = data.data));
     },
   },
