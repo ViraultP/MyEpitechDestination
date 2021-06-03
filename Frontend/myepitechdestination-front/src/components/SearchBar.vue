@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <div class="container searchbar">
+
       <div class="row">
         <div class="nav justify-content-center">
           <input
@@ -10,26 +11,34 @@
             v-model="query"
             @keyup="searchBar(query)"
           />
-          <div v-for="article in data.data" :key="article">
-            {{ article.titre }}
-            {{ article.description }}
+        </div>
+      </div>
+
+      <div class="result-search">
+
+        <div class="resulat" v-for="article in data.data" :key="article">
+          <div class="result-main">
+            <h1>{{ article.titre }}</h1>
             <img :src="'http://localhost:8080/' + article.image" width="250" />
-          </div>
-          <div v-for="article in articles.data" :key="article.id">
+            <div class="button">
+              <a :href="'/article/' + article.id"><button>Voir l'article</button></a>
+        </div>
+        </div>
+        </div>
+
+        <div v-for="article in articles.data" :key="article.id" class="resulat2">
             <div>{{ article.titre }}</div>
-            <br />
-            <div>{{ article.description }}</div>
-            <br />
+            <!-- <div>{{ article.description }}</div> -->
             <div>
               <img
                 :src="'http://localhost:8080/' + article.image"
                 width="250"
               />
+              
             </div>
-            <br />
           </div>
         </div>
-      </div>
+     
     </div>
   </div>
 </template>
@@ -153,5 +162,36 @@ input[type="text"] {
   border-radius: 50px;
   width: 700px;
   text-align: left;
+}
+
+.result-search{
+ /* border: 1px solid black; */
+ text-align: center;
+ margin: 40px 0;
+}
+
+.resulat1{
+  border: 1px solid black;
+}
+
+.result-main {
+  display: block;
+}
+
+.result-main .button button {
+  margin-top: 20px;
+  /* margin-left: 40px; */
+  padding: 10px 40px;
+  border-radius: 10px;
+  background-color: #1b1b52;
+  color: white;
+  border: none;
+  font-family: "Lato";
+}
+
+.result-main .button button:hover {
+  background-color: white;
+  border: 2px solid #1b1b52;
+  color: #1b1b52;
 }
 </style>
