@@ -37,7 +37,7 @@
           <h1>Laisser un commentaire</h1>
           <form @submit.prevent="createCommentaire" class="create-comment">
               <div class="name">
-                <input v-model='nom' type="text" placeholder="Entrer votre nom">
+                <input v-model='nom' type="text" placeholder="Votre nom">
               </div>
             <div class="row">
               <textarea v-model='commentaire' placeholder="Ecrire un commentaire..." type="text"/>
@@ -45,8 +45,9 @@
             <div class="id">
               <input class="id" v-model='article.id' readonly='true'>
             </div>
-            
-            <button type="submit" >Envoyer</button>
+            <div class="comment-button">
+              <button type="submit" >Envoyer</button>
+            </div>
           </form>
         </div>
       </div>
@@ -206,19 +207,20 @@ export default {
 }
 
 .name{
-  display: flex;
+  display: block;
 }
 
 .name input {
-  border: 2px solid black;
-  border-radius: 6px;
+  border: none;
+  border-bottom: 2px solid black;
   padding: 0 10px;
   margin: 15px;
   height: 35px;
 }
 
 .create-comment textarea{
-  border: 2px solid black;
+  border: none;
+  background-color: #c4c4c494;
   border-radius: 6px;
   resize: none;
   width: 80%;
@@ -226,7 +228,14 @@ export default {
   margin: 15px;
 }
 
+.comment-button{
+  display: flex;
+  text-align: right;
+}
+
 .create-comment button{
+  display: flex;
+  text-align: right;
   margin: 20px 0;
   background-color: #85C4AF;
   border-radius: 6px;
