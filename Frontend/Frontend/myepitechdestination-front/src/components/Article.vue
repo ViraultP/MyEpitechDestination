@@ -13,7 +13,6 @@
       <img :src="'https://my-epitech-destination-api.herokuapp.com/' + article.image" width="400" />
     </div>
     <div class="row infos">
-      <p>10 janvier 2020 | Prénom Nom</p>
     </div>
     <div class="row description">
       <p>{{ article.description }}</p>
@@ -23,13 +22,6 @@
     <div class="row">
       <div class="evaluation">
         <h1>Cet article est utile ?</h1>
-        <ul class="stars">
-          <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-        </ul>
       </div>
     </div>
 

@@ -12,7 +12,7 @@
         height="675"
       ></iframe>
     </div>
-    <div class="titre"><h1>Les articles récents</h1></div>
+    <div class="titre"><h1>Les derniers articles</h1></div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div v-for="article in articles.data" v-bind:key="article.id" class="col">
         <div id="card" class="card h-100">
@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .row-cols-1 {
-  margin-bottom: 150px;
+  margin-bottom: 7em;
 }
 #card {
   background-color: #1b1b52;
@@ -80,6 +80,8 @@ export default {
 .card-body {
   font-family: "Lato";
   color: white;
+  height: 2em;
+  margin-bottom: 2em;
 }
 
 .Map {
@@ -90,19 +92,16 @@ export default {
 }
 .titre h1 {
   font-family: "Lato";
-  font-weight: lighter;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: center;
 }
 a
 {
-  width: 300px;
-  height: 250px;
+  height: 100%;
 }
 img
 {
   width: 100%;
-}
-.card-body
-{
-  height: 30px;
 }
 </style>

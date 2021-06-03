@@ -4,36 +4,22 @@
     <footer class="footer">
       <div class="container bottom_border">
         <div class="row">
-          <div class="text-center">
-            <!-- <img
-                src="../src/assets/logo-green.png"
-                class="rounded"
-                alt="..."
-                width="30"
-                height="30"
-            /> -->
-          </div>
           <div class="col-sm-4 col-md col-sm-4 col-12 col">
             <ul class="footer_Epitech">
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/contact">Mentions Légales/CGC</a></li>
             </ul>
           </div>
           <div class="col-sm-4 col-md col-6 col">
             <ul class="footer_Epitech">
-              <li><a href="/Home">Mentions Légages/CGC</a></li>
+              <li><a href="/Home">Contact</a></li>
             </ul>
             <!--footer_Epitech ends here-->
-          </div>
-          <div class="col-sm-4 col-md col-6 col">
-            <ul class="footer_Epitech">
-              <li><a href="/Home">Cookies</a></li>
-            </ul>
           </div>
           <!--footer_Epitech  ends here-->
           <div class="col-sm-4 col-md col-6 col">
             <ul class="footer_Epitech">
               <li>
-                <a href="/Home">Politique de Confidentialité</a>
+                <a href="/Home">Politique de confidentialité</a>
               </li>
             </ul>
           </div>
@@ -42,7 +28,7 @@
         <div class="container">
           <!--foote_bottom_Epitech ends here-->
           <p class="text-center">
-            Copyright @2021 by <a href="#">My destination Epitech</a>
+             <a href="#">Copyright @2021 by My destination Epitech</a>
           </p>
         </div>
       </div>
@@ -54,7 +40,13 @@
 </script>
 
 <style scoped>
-.body {
+.row
+{
+  text-align: center;
+  margin-bottom: 2em;
+}
+.body 
+{
   font-family: "Bebas Neue", cursive;
 }
 .navbar h1 {
@@ -69,7 +61,7 @@
 a {
   text-decoration: none;
   color: black;
-  font-size: 1.9em;
+  font-size: 1.5em;
 }
 
 a:hover {
@@ -88,7 +80,6 @@ body {
 footer {
   width: 100%;
   min-height: 250px;
-  padding: 10px 0px 15px 0px;
 }
 .pt2 {
   padding-top: 40px;
@@ -104,13 +95,9 @@ footer p {
   padding-bottom: 15px;
 }
 .footer_Epitech {
-  margin: 0px;
+
   list-style-type: none;
   font-size: 12px;
-  padding: 0px 0px 10px 0px;
-}
-.footer_Epitech {
-  padding: 0px 0px 5px 0px;
 }
 .footer_Epitech li a {
   color: black;
@@ -124,12 +111,6 @@ footer p {
 }
 .padding-right {
   padding-right: 10px;
-}
-
-.footer_Epitech {
-  margin: 0px;
-  list-style-type: none;
-  padding: 0px;
 }
 .footer_Epitech li p {
   display: table;

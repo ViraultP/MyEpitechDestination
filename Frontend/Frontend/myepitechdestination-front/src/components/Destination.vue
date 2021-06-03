@@ -15,8 +15,6 @@
           <div class="card-body">
             <div class="title-heart">
               <h5 class="card-title">{{ article.titre }}</h5>
-              <h6>{{ article.auteur }}</h6>
-              <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
             </div>
           </div>
         </div>

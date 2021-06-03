@@ -10,13 +10,13 @@
             v-model="query"
             @keyup="searchBar(query)"
           />
-          <div class="article" v-for="article in data.data" :key="article">
+          </div>
+        </div>
+         <div class="article" v-for="article in data.data" :key="article">
             <h1>{{article.titre}}</h1>
               <div><a :href="'/article/' + article.id"
             ><img :src="'https://my-epitech-destination-api.herokuapp.com/' + article.image" 
           /></a></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -92,12 +92,14 @@ input[type="text"] {
   font-size: 16px;
   border-radius: 50px;
   width: 700px;
+  height: 30px;
   text-align: left;
 }
 .article
 {
-  margin-right: 2em;
-  margin-bottom: 5em;
+ display : inline-block;
+ margin:2em;
+ padding-left: 6.5em;
 }
 img{
   width: 400px;
