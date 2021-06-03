@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const {searchh} = require("./app/routes/search.routes");
+const { searchh } = require("./app/routes/search.routes");
 const app = express();
 
 app.use(express.json())
@@ -22,6 +22,7 @@ require('./app/routes/article.routes')(app);
 require('./app/routes/search.routes')(app);
 require('./app/routes/filtre.routes')(app);
 require('./app/routes/universite.routes')(app);
+require('./app/routes/lastarticle.routes')(app);
 
 db.sequelize.sync();
 

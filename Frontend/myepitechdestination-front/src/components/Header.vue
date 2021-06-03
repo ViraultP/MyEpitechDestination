@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="navbar">
-            <!-- <img src="../assets/logo-mydestinationepitech.png" class="logo" alt=""> -->
+            <img src="../assets/logo-mydestinationepitech.png" class="logo" alt="">
             <nav>
                 <ul>
                     <li v-if="showAdminBoard" class="nav-item">
