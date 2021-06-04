@@ -46,36 +46,60 @@ exports.createArticle = (req, res) => {
         universiteId: req.body.universiteId,
     };
     Article.create(article)
+<<<<<<< HEAD
         .then((data) => {
             res.send(data)
+=======
+<<<<<<< HEAD
+        .then((data) => {
+            res.send(data)
+=======
+    .then((data) => {
+        res.send(data)
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+            err.message || "Une erreur s'est produite lors de la création de l'article."
+        })
+    })
+},
+
+// Retrieve article by id with his comments.
+exports.findOneArticle = (req, res) =>
+{
+    const id = req.params.id;
+    Article.findByPk(id, {
+        include: [{
+        model: Categorie,
+        as: 'categories',
+        attributes :["id","nom"],
+        through: {
+            model: categorie_articles,
+            as: 'categorie_articles',
+            attributes: ['articleId', 'categorieId']
+        }
+        }]
+    })
+    .then(article =>
+    {
+        var condition = {articleId: id};
+        Commentaire.findAll({ where: condition })
+        .then(commentaires =>
+        {
+            article.dataValues["commentaires"] = commentaires;
+            res.send(article);
+>>>>>>> refs/remotes/origin/FrontSarah
+>>>>>>> FrontSarah
         })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Une erreur s'est produite lors de la création de l'article."
-            })
-        })
-},
-
-    // Retrieve article by id with his comments.
-    exports.findOneArticle = (req, res) => {
-        const id = req.params.id;
-        Article.findByPk(id)
-            .then(article => {
-                var condition = { articleId: id };
-                Commentaire.findAll({ where: condition })
-                    .then(commentaires => {
-                        article.dataValues["commentaires"] = commentaires;
-                        res.send(article);
-                    })
-                    .catch(err => {
-                        res.status(500).send({
-                            message:
-                                err.message || "Une erreur s'est produite lors de la récupération du commentaire"
-                        });
-                    });
-            })
-    };
+                    err.message || "Une erreur s'est produite lors de la récupération du commentaire"
+            });
+        });
+})
+};
 
 exports.findAllArticles = (req, res) => {
     Article.findAll({
@@ -179,49 +203,53 @@ exports.createCommentaire = (req, res) => {
     exports.deleteCommentaire = (req, res) => {
         const id = req.params.id;
 
-        Commentaire.destroy({
-            where: { id: id }
-        })
-            .then(num => {
-                if (num == 1) {
-                    res.send({
-                        message: "Le commentaire a été supprimé!"
-                    });
-                } else {
-                    res.send({
-                        message: `Impossible de supprimer le commentaire avec l'identifiant: ${id}.`
-                    });
-                }
-            })
-            .catch(err => {
-                res.status(500).send({
-                    message:
-                        err.message || "Impossible de supprimer le commentaire avec l'identifiant:" + id
-                });
-            });
-    };
+        // Delete comment by id
+        exports.deleteCommentaire = (req, res) => {
+            const id = req.params.id;
 
-// Update comment
-exports.updateCommentaire = (req, res) => {
-    const id = req.params.id;
-    Commentaire.update(req.body, {
-        where: { id: id }
-    })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "Commentaire modifié avec succès."
+            Commentaire.destroy({
+                where: { id: id }
+            })
+                .then(num => {
+                    if (num == 1) {
+                        res.send({
+                            message: "Le commentaire a été supprimé!"
+                        });
+                    } else {
+                        res.send({
+                            message: `Impossible de supprimer le commentaire avec l'identifiant: ${id}.`
+                        });
+                    }
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        message:
+                            err.message || "Impossible de supprimer le commentaire avec l'identifiant:" + id
+                    });
                 });
-            } else {
-                res.send({
-                    message: `Impossible de modifié le commentaire avec l'identifiant: ${id}.`
+        };
+
+        // Update comment
+        exports.updateCommentaire = (req, res) => {
+            const id = req.params.id;
+            Commentaire.update(req.body, {
+                where: { id: id }
+            })
+                .then(num => {
+                    if (num == 1) {
+                        res.send({
+                            message: "Commentaire modifié avec succès."
+                        });
+                    } else {
+                        res.send({
+                            message: `Impossible de modifié le commentaire avec l'identifiant: ${id}.`
+                        });
+                    }
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        message:
+                            err.message || "Une erreur s'est produite lors de la modification du commentaire avec l'identifiant: " + id
+                    });
                 });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Une erreur s'est produite lors de la modification du commentaire avec l'identifiant: " + id
-            });
-        });
-};
+        };

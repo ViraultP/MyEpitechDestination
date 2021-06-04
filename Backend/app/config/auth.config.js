@@ -1,3 +1,3 @@
 module.exports = {
-    secret: "CodingAcademy-secret-key"
+  secret: "CodingAcademy-secret-key"
 };

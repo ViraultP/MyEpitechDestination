@@ -21,7 +21,16 @@ require('./app/routes/user.routes')(app);
 require('./app/routes/article.routes')(app);
 require('./app/routes/search.routes')(app);
 require('./app/routes/filtre.routes')(app);
+
 require('./app/routes/lastarticle.routes')(app);
+
+require('./app/routes/lastarticle.routes')(app);
+
+require('./app/routes/universite.routes')(app);
+
+require('./app/routes/universite.routes')(app);
+require('./app/routes/lastarticle.routes')(app);
+
 
 db.sequelize.sync();
 
@@ -34,4 +43,3 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
-});

@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="navbar">
-            <img src="../assets/logo-mydestinationepitech.png" class="logo" alt="">
+            <!-- <img src="../assets/logo-mydestinationepitech.png" class="logo" alt=""> -->
             <nav>
                 <ul>
                     <li v-if="showAdminBoard" class="nav-item">
-                        <router-link to="/admin" class="nav-link"><img src="../assets/dashboard.png" alt="" width="30" height="30" /></router-link>
+                        <router-link to="/crudUtilisateurs" class="nav-link"><img src="../assets/dashboard.png" alt="" width="30" height="30" /></router-link>
                     </li>
 
                     <li><a href="/login"><img src="../assets/user.svg" alt="" width="30" height="30" /> </a></li>
@@ -23,14 +23,13 @@
           <li class="nav-item">
         <a class="nav-link" href="/">Accueil</a>
         </li>
-        
-        <li class="nav-item" v-for="(item, index) in navigation" :key="'item'+index">
-        <a class="nav-link destination" href="/destination" @click="item.open = !item.open">{{item.title}}</a>
-        <Dropdown v-if="item.subnav" :list="item"/>
+
+        <li class="nav-item">
+        <a class="nav-link" href="/destination">Destination</a>
         </li>
         
         <li class="nav-item">
-        <a class="nav-link" href="/contact">CONTACT</a>
+        <a class="nav-link" href="/contact">Contact</a>
         </li>
 
         
@@ -41,8 +40,9 @@
 
 
 <script>
-import Dropdown from './Dropdown'
 
+import axios from 'axios';
+import UserService from "../services/user.service";
 export default {
     name: 'Header',
     computed: {
@@ -50,19 +50,106 @@ export default {
             return this.$store.getters.navigation;
         },
         currentUser() {
-      return this.$store.state.auth.user;
-    },
-    showAdminBoard() {
-      if (this.currentUser && this.currentUser['roles']) {
-        return this.currentUser['roles'].includes('ROLE_ADMIN');
-      }
-
-      return false;
+            return this.$store.state.auth.user;
+        },
+        showAdminBoard() {
+            if (this.currentUser && this.currentUser['roles']) {
+            return this.currentUser['roles'].includes('ROLE_ADMIN');
+        }
+            return false;
     },
     },
     components: {
-        Dropdown
-    }
+        
+    },
+    data() {
+    return {
+      content: "",
+      data: [],
+      continents:[],
+      countries:[],
+      ville:[],
+      universite:[],
+      articles:[],
+    };
+  },
+  mounted() {
+    UserService.getPublicContent().then(
+      (response) => {
+        this.content = response.data;
+      },
+      (error) => {
+        this.content =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+      }
+    );
+  },
+    created() {
+      this.getByUniversite()
+      this.getAllcontinent()
+      this.getByVille()
+      this.getByPays()
+      this.getByContinent()
+      this.searchBar()
+    },
+    methods: 
+  {
+      getByUniversite() 
+      {
+        //requete d'une universite pour recupere les article associer 
+        axios.get('http://localhost:8080/api/filteruniversite?universite='+this.universite)
+        .then((resp) => {
+          this.articles = resp
+          })
+      },
+      getAllcontinent() 
+      {
+        //requete de tout les continent 
+        axios.get('http://localhost:8080/api/filter/continent')
+        .then((resp) => {
+          this.continents = resp
+          })
+      },
+      getByVille() 
+      {
+        //requete par une ville pour récuperer une université
+        axios.get('http://localhost:8080/api/filterville?ville='+this.ville)
+        .then((resp) => {
+          this.universite = resp
+          })
+      },
+      getByPays() 
+      {
+        //requete par un pays pour recuperer une ville 
+        axios.get('http://localhost:8080/api/filterpays?pays='+this.pays)
+        .then((resp) => {
+          this.ville = resp
+          })
+      },
+      getByContinent() 
+      {
+        axios.get('http://localhost:8080/api/filtercontinent?continent='+this.continent)
+        .then((resp) => {
+          this.countries = resp
+          console.log(this.countries)
+          })
+      },
+      searchBar(query)
+      {
+        axios.get('http://localhost:8080/api/search?recherche='+query)
+        .then((resp) => {
+          this.data = resp
+          console.log(this.data.data)
+          })
+      },
+      onChange:function(){
+       console.log(this.continent);
+      }
+}
 }
 </script>
 
@@ -80,6 +167,7 @@ export default {
 .logo{
     width: 50px;
     cursor: pointer;
+    margin: 0 auto;
 
 }
 
@@ -99,7 +187,6 @@ nav ul li{
     display: block;
     text-align: center;
     font-size: 4.2em;
-
 }
 
 a{

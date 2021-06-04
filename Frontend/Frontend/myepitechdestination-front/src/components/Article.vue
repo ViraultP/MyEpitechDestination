@@ -36,13 +36,23 @@
     <div class="container">
       <div class="comment">
         <h1>Laisser un commentaire</h1>
-        <form action="" class="create-comment">
-          <label class="nom" for="name">Nom</label>
-          <input type="text" />
-          <div class="row">
-            <textarea placeholder="Ecrire un commentaire..." type="text" />
+        <form @submit.prevent="createCommentaire" class="create-comment">
+          <div class="name">
+            <input v-model="nom" type="text" placeholder="Votre nom" />
           </div>
-          <button>Envoyer</button>
+          <div class="row">
+            <textarea
+              v-model="commentaire"
+              placeholder="Ecrire un commentaire..."
+              type="text"
+            />
+          </div>
+          <div class="id">
+            <input class="id" v-model="article.id" readonly="true" />
+          </div>
+          <div class="comment-button">
+            <button type="submit">Envoyer</button>
+          </div>
         </form>
       </div>
     </div>
@@ -68,7 +78,6 @@ import Header from "@/components/Header.vue";
 import Dropdown from "./Dropdown";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
-
 export default {
   name: "Destination",
   components: {
@@ -79,6 +88,7 @@ export default {
   data() {
     return {
       article: {},
+      commentaires: {},
     };
   },
   created() {
@@ -91,6 +101,23 @@ export default {
         .then((data) => (this.article = data.data));
       console.log(this.article);
     },
+    createCommentaire() {
+      axios
+        .post("http://localhost:8080/api/commentaires", {
+          nom: this.nom,
+          commentaire: this.commentaire,
+          articleId: this.article.id,
+        })
+        .then((response) => {
+          this.nom = "";
+          this.commentaire = "";
+          this.fetcharticle();
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
@@ -102,39 +129,32 @@ export default {
   margin-bottom: 50px;
   color: black;
 }
-
 .header .fa-long-arrow-left a {
   text-decoration: none;
 }
-
 .header .fa-long-arrow-left:hover {
   color: #85c4af;
 }
-
 .header h1 {
   font-family: "Bebas Neue", cursive;
   font-size: 2.6em;
 }
-
 .image {
   width: 100%;
   margin-bottom: 10px;
 }
-
 .infos p {
   margin-top: 10px;
   font-family: "Lato";
   font-size: 1.2em;
   font-weight: l;
 }
-
 .description p {
   text-align: justify;
   font-family: "Lato";
   font-size: 1.4em;
   line-height: 2em;
 }
-
 .evaluation {
   width: 100%;
   height: 12%;
@@ -142,95 +162,96 @@ export default {
   align-items: center;
   margin-bottom: 50px;
 }
-
 .evaluation h1 {
   font-family: "Bebas Neue", cursive;
   font-size: 2.3em;
 }
-
 .evaluation .stars {
   flex: 1;
   text-align: right;
 }
-
 .stars {
   list-style: none;
   display: inline-flex;
   cursor: pointer;
 }
-
 .fa-star-o {
   flex: 1;
   text-align: right;
 }
-
 .stars li {
   float: right;
   padding: 10px 4px 0px 4px;
   color: #85c4af;
 }
-
 .comment h1 {
   font-family: "Bebas Neue", cursive;
   font-size: 2.3em;
 }
-
 .create-comment {
   font-family: "Lato";
 }
-
+.id {
+  display: none;
+}
 .create-comment .nom {
   font-size: 1.2em;
 }
-
-.create-comment input {
-  display: flex;
+.name {
+  display: block;
+}
+.name input {
   border: none;
-  outline: none;
   border-bottom: 2px solid black;
-  margin-bottom: 15px;
+  padding: 0 10px;
+  margin: 15px;
+  height: 35px;
 }
-
 .create-comment textarea {
+  border: none;
+  background-color: #c4c4c494;
+  border-radius: 6px;
   resize: none;
+  width: 80%;
   height: 150px;
+  margin: 15px;
 }
-
+.comment-button {
+  display: flex;
+  text-align: right;
+}
 .create-comment button {
+  display: flex;
+  text-align: right;
   margin: 20px 0;
   background-color: #85c4af;
+  border-radius: 6px;
   padding: 10px 20px;
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 1.2em;
 }
-
 .comment h1 {
   font-family: "Bebas Neue", cursive;
   font-size: 2.3em;
 }
-
 hr {
   color: #85c4af;
 }
-
 .all-comments {
   font-family: "Lato";
 }
-
 .all-comments h4 {
   font-weight: bold;
   margin-top: 25px;
 }
-
 .all-comments h6 {
   font-weight: lighter;
   color: #7f7f7f;
   font-weight: lighter;
   font-size: 1.2em;
 }
-
 .all-comments p {
   margin: 50px 0;
   font-size: 1.4em;

@@ -4,7 +4,8 @@ import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import Contact from "./components/Contact.vue";
 import Destination from "./components/Destination.vue";
-import NavTest from "./components/NavTest.vue";
+import Article from "./components/Article.vue";
+
 import CrudUtilisateurs from "./components/Users/CrudUtilisateurs.vue";
 import EditUtilisateurs from "./components/Users/EditUsers.vue";
 import CreateUtilisateurs from "./components/Users/CreateUtilisateur.vue";
@@ -31,11 +32,6 @@ const routes = [
     path: "/home",
     component: Home,
   },
-  
-  {
-    path: "/navtest",
-    component: NavTest,
-  },
   {
     path: "/login",
     component: Login,
@@ -51,6 +47,10 @@ const routes = [
   {
     path: "/destination",
     component: Destination,
+  },
+  {
+    path: "/article/:id",
+    component: Article,
   },
   {
     path: "/profile",

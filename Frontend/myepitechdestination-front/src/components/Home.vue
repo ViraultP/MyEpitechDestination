@@ -1,156 +1,117 @@
 <template>
   <div class="container">
+<<<<<<< HEAD
+     <Header />
     <header class="jumbotron">
       <p>Components Home.vu</p>
-      <Test />
-      <h3>{{ content }}</h3>
+      <SearchBar />
     </header>
-    <router-link to="contact" class="nav-item r-item">Contact</router-link>
-    <input type="text" v-model="query" @keyup="searchBar(query)" />
-    <div v-for="article in data.data" :key="article">
-      {{ article.titre }}
-      {{ article.description }}
-      <img :src="'http://localhost:8080/' + article.image" width="250" />
+    <!-- <router-link to="contact" class="nav-item r-item">Contact</router-link> -->
+=======
+    <Header />
+    <header class="jumbotron">
+      <SearchBar />
+    </header>
+    <!-- <router-link to="contact" class="nav-item r-item">Contact</router-link> -->
+    <div class="Map">
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1YvBZhsgchrEpeuMUUCI0mR_kQXGU-OyD"
+        width="900"
+        height="675"
+      ></iframe>
     </div>
-    <select v-model="continent" @change="getByContinent()">
-      <option v-for="continent in continents.data" :key="continent.id">
-        {{ continent.continent }}
-      </option></select
-    ><br />
-    <div v-for="country in countries.data" :key="country.id">
-      <select v-model="pays" @change="getByPays()">
-        <option v-for="pays in country.etats" :key="pays.id">
-          {{ pays.pays }}
-        </option></select
-      ><br />
-    </div>
-    <div>
-      <select v-model="ville" @change="getByVille()">
-        <option v-for="ville in ville.data" :key="ville.id">
-          {{ ville.nom }}
-        </option></select
-      ><br/>
-    </div>
-    <div>
-      <select v-model="universite" @change="getByUniversite()">
-        <option v-for="ecole in universite.data" :key="ecole.id">
-          {{ ecole.nom }}
-        </option></select
-      ><br />
-    </div>
-    <div v-for="article in articles.data" :key="article.id">
-      <div>{{ article.titre }}</div>
-      <br />
-      <div>{{ article.description }}</div>
-      <br />
-      <div>
-        <img :src="'http://localhost:8080/' + article.image" width="250" />
+    <div class="titre"><h1>Les articles récents</h1></div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div v-for="article in articles" v-bind:key="article.id" class="col">
+        <div id="card" class="card h-100">
+          <a :href="'/article/' + article.id"
+            ><img :src="'http://localhost:8080/' + article.image" width="400"
+          /></a>
+
+          <div class="card-body">
+            <div class="title-heart">
+              <h5 class="card-title">{{ article.titre }}</h5>
+            </div>
+            <p class="card-text">Prénom Nom | 06 Juillet 2020</p>
+          </div>
+        </div>
       </div>
-      <br />
     </div>
+>>>>>>> refs/remotes/origin/FrontSarah
+    <Footer />
   </div>
 </template>
 
 <script>
-import UserService from "../services/user.service";
-import Test from "./Test";
-import axios from "axios"
+<<<<<<< HEAD
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+import SearchBar from "./SearchBar";
+=======
+import Header from "@/components/Header.vue";
+import SearchBar from "./SearchBar";
+import Footer from "@/components/Footer.vue";
+import axios from "axios";
+>>>>>>> refs/remotes/origin/FrontSarah
 
 export default {
-  components: {
-    Test
-  },
+
   name: "Home",
+  components: {
+    SearchBar,
+    Header,
+<<<<<<< HEAD
+    Footer
+  },
+=======
+    Footer,
+  },
   data() {
     return {
-      content: "",
-      data: [],
-      continents: [],
-      countries: [],
-      ville: [],
-      universite: [],
-      articles: [],
+      articles: "",
     };
   },
-  mounted() {
-    UserService.getPublicContent().then(
-      (response) => {
-        this.content = response.data;
-      },
-      (error) => {
-        this.content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-      }
-    );
-  },
   created() {
-    this.getByUniversite();
-    this.getAllcontinent();
-    this.getByVille();
-    this.getByPays();
-    this.getByContinent();
-    this.searchBar();
+    this.fetcharticles();
   },
   methods: {
-    getByUniversite() {
-      //requete d'une universite pour recupere les article associer
+    fetcharticles() {
       axios
-        .get(
-          "http://localhost:8080/api/filteruniversite?universite=" +
-            this.universite
-        )
-        .then((resp) => {
-          this.articles = resp;
-        });
-    },
-    getAllcontinent() {
-      //requete de tout les continent
-      axios.get("http://localhost:8080/api/filter/continent").then((resp) => {
-        this.continents = resp;
-      });
-    },
-    getByVille() {
-      //requete par une ville pour récuperer une université
-      axios
-        .get("http://localhost:8080/api/filterville?ville=" + this.ville)
-        .then((resp) => {
-          this.universite = resp;
-        });
-    },
-    getByPays() {
-      //requete par un pays pour recuperer une ville
-      axios
-        .get("http://localhost:8080/api/filterpays?pays=" + this.pays)
-        .then((resp) => {
-          this.ville = resp;
-        });
-    },
-    getByContinent() {
-      axios
-        .get(
-          "http://localhost:8080/api/filtercontinent?continent=" +
-            this.continent
-        )
-        .then((resp) => {
-          this.countries = resp;
-          console.log(this.countries);
-        });
-    },
-    searchBar(query) {
-      axios
-        .get("http://localhost:8080/api/search?recherche=" + query)
-        .then((resp) => {
-          this.data = resp;
-          console.log(this.data.data);
-        });
-    },
-    onChange: function () {
-      console.log(this.continent);
+        .get("http://localhost:8080/api/lastarticles")
+        .then((data) => (this.articles = data.data));
     },
   },
+>>>>>>> refs/remotes/origin/FrontSarah
 };
 </script>
+
+<style scoped>
+.row-cols-1 {
+  margin-bottom: 150px;
+}
+#card {
+  background-color: #1b1b52;
+  height: auto;
+  border: none;
+  margin: 20px;
+}
+#card img {
+  width: 100%;
+  height: auto;
+}
+.card-body {
+  font-family: "Lato";
+  color: white;
+}
+
+.Map {
+  box-sizing: border-box;
+  position: relative;
+  text-align: center;
+  margin: 50px 0px;
+}
+.titre h1 {
+  font-family: "Lato";
+  font-weight: lighter;
+}
+</style>
