@@ -37,6 +37,7 @@
           <h1>Laisser un commentaire</h1>
           <form @submit.prevent="createCommentaire" class="create-comment">
               <div class="name">
+<<<<<<< HEAD
                 <input v-model='nom' type="text" placeholder="Entrer votre nom">
               </div>
             <div class="row">
@@ -47,6 +48,19 @@
             </div>
             
             <button type="submit" >Envoyer</button>
+=======
+                <input v-model='nom' type="text" placeholder="Votre nom">
+              </div>
+            <div class="row">
+              <textarea v-model='commentaire' placeholder="Ecrire un commentaire..." type="text"/>
+            </div>
+            <div class="id">
+              <input class="id" v-model='article.id' readonly='true'>
+            </div>
+            <div class="comment-button">
+              <button type="submit" >Envoyer</button>
+            </div>
+>>>>>>> refs/remotes/origin/FrontSarah
           </form>
         </div>
       </div>
@@ -206,27 +220,51 @@ export default {
 }
 
 .name{
+<<<<<<< HEAD
   display: flex;
 }
 
 .name input {
   border: 2px solid black;
   border-radius: 6px;
+=======
+  display: block;
+}
+
+.name input {
+  border: none;
+  border-bottom: 2px solid black;
+>>>>>>> refs/remotes/origin/FrontSarah
   padding: 0 10px;
   margin: 15px;
   height: 35px;
 }
 
 .create-comment textarea{
+<<<<<<< HEAD
   border: 2px solid black;
+=======
+  border: none;
+  background-color: #c4c4c494;
+>>>>>>> refs/remotes/origin/FrontSarah
   border-radius: 6px;
   resize: none;
   width: 80%;
   height: 150px;
   margin: 15px;
+<<<<<<< HEAD
+=======
+}
+
+.comment-button{
+  display: flex;
+  text-align: right;
+>>>>>>> refs/remotes/origin/FrontSarah
 }
 
 .create-comment button{
+  display: flex;
+  text-align: right;
   margin: 20px 0;
   background-color: #85C4AF;
   border-radius: 6px;

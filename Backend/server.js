@@ -22,10 +22,15 @@ require('./app/routes/article.routes')(app);
 require('./app/routes/search.routes')(app);
 require('./app/routes/filtre.routes')(app);
 <<<<<<< HEAD
+<<<<<<< HEAD
 require('./app/routes/lastarticle.routes')(app);
 =======
 require('./app/routes/universite.routes')(app);
 >>>>>>> d756fabbfd22af7a53d1fbada2845e1136781c76
+=======
+require('./app/routes/universite.routes')(app);
+require('./app/routes/lastarticle.routes')(app);
+>>>>>>> refs/remotes/origin/FrontSarah
 
 db.sequelize.sync();
 
