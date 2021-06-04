@@ -62,8 +62,6 @@ export default {
 <style scoped>
 .container {
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   padding: 30px 10px;
   border-radius: 15px;
@@ -102,3 +100,4 @@ h3 {
   background-color: transparent;
   color: #85c4af;
 }
+</style>
