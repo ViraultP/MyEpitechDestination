@@ -2,9 +2,9 @@ const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
-  dbConfig.DB, 
-  dbConfig.USER, 
-  dbConfig.PASSWORD, 
+  dbConfig.DB,
+  dbConfig.USER,
+  dbConfig.PASSWORD,
   {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
@@ -63,7 +63,7 @@ db.categorie.belongsToMany(db.article, {
   otherKey: "articleId"
 });
 
-db.CATEGORIE = ["restauration","lieu", "activité", "hébergement"];
+db.CATEGORIE = ["restauration", "lieu", "activité", "hébergement"];
 
 //relation entre continent et pays
 db.continent.belongsToMany(db.etat, {
@@ -78,70 +78,70 @@ db.etat.belongsToMany(db.continent, {
   otherKey: "continentId"
 });
 
-db.ETAT = [ "Afrique du Sud",
-            "Allemagne",
-            "Angleterre",
-            "Argentine",
-            "Australie",
-            "Bahreïn",
-            "Belgique",
-            "Brésil",
-            "Canada",
-            "Chili",
-            "Chine",
-            "Colombie",
-            "Corée du Sud",
-            "Croatie",
-            "Danemark",
-            "Espagne",
-            "Finlande",
-            "Hongrie",
-            "Inde",
-            "Indonésie",
-            "Irlande",
-            "Japon",
-            "Lettonie",
-            "Lituanie",
-            "Malaisie",
-            "Mexique",
-            "Pays Bas",
-            "Pologne",
-            "République Tchèque",
-            "Roumanie",
-            "Russie",
-            "Singapour",
-            "Suède",
-            "Taïwan",
-            "Thaïlande",
-            "Turquie",
-            "USA",
-          ];
+db.ETAT = ["Afrique du Sud",
+  "Allemagne",
+  "Angleterre",
+  "Argentine",
+  "Australie",
+  "Bahreïn",
+  "Belgique",
+  "Brésil",
+  "Canada",
+  "Chili",
+  "Chine",
+  "Colombie",
+  "Corée du Sud",
+  "Croatie",
+  "Danemark",
+  "Espagne",
+  "Finlande",
+  "Hongrie",
+  "Inde",
+  "Indonésie",
+  "Irlande",
+  "Japon",
+  "Lettonie",
+  "Lituanie",
+  "Malaisie",
+  "Mexique",
+  "Pays Bas",
+  "Pologne",
+  "République Tchèque",
+  "Roumanie",
+  "Russie",
+  "Singapour",
+  "Suède",
+  "Taïwan",
+  "Thaïlande",
+  "Turquie",
+  "USA",
+];
 
 
 // hasMany() pour que l'article est plusieurs commentaires. belongTo pour indiquer qu'un commentaire n'appartient qu'à un seul article.
 // relation table pays et ville
-db.etat.hasMany(db.ville, { as: "ville"});
+db.etat.hasMany(db.ville, { as: "ville" });
 db.ville.belongsTo(db.etat, {
   foreignKey: "etatId",
   as: "etat",
 });
 
 // relation table ville avec université
-db.ville.hasMany(db.universite, { as: "universite"});
+db.ville.hasMany(db.universite, { as: "universite" });
 db.universite.belongsTo(db.ville, {
   foreignKey: "villeId",
   as: "ville",
 });
 
 // relation table pays et article
-db.universite.hasMany(db.article, { as: "article"});
+db.universite.hasMany(db.article, { as: "article" });
 db.article.belongsTo(db.universite, {
   foreignKey: "universiteId",
   as: "universite",
 });
 
 // relation table article et commentaire
-db.article.hasMany(db.commentaire, { as: "commentaire"});
+db.article.hasMany(db.commentaire, { as: "commentaire" });
 db.commentaire.belongsTo(db.article, {
   foreignKey: "articleId",
   as: "article",

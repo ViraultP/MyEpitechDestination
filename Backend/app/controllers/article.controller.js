@@ -3,7 +3,6 @@
 //var bcrypt = require("bcryptjs");
 
 //constants
-const { article, commentaire } = require("../models");
 const db = require("../models");
 const Article = db.article;
 const Commentaire = db.commentaire;
@@ -40,6 +39,7 @@ exports.uploadImg = multer({
 //Create article
 exports.createArticle = (req, res) => {
     const article = {
+        auteur: req.body.auteur,
         titre: req.body.titre,
         description: req.body.description,
         image: req.file.path,
@@ -153,7 +153,7 @@ exports.deleteOneArticle = (req, res) => {
 // Create and save comment
 exports.createCommentaire = (req, res) => {
     const commentaire = {
-        email: req.body.email,
+        nom: req.body.nom,
         commentaire: req.body.commentaire,
         articleId: req.body.articleId
     };

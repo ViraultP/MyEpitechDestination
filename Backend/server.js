@@ -21,7 +21,11 @@ require('./app/routes/user.routes')(app);
 require('./app/routes/article.routes')(app);
 require('./app/routes/search.routes')(app);
 require('./app/routes/filtre.routes')(app);
+<<<<<<< HEAD
 require('./app/routes/lastarticle.routes')(app);
+=======
+require('./app/routes/universite.routes')(app);
+>>>>>>> d756fabbfd22af7a53d1fbada2845e1136781c76
 
 db.sequelize.sync();
 

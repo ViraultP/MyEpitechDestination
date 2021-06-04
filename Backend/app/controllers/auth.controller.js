@@ -18,32 +18,32 @@ exports.signup = (req, res) => {
     email: req.body.email,
     mot_de_passe: bcrypt.hashSync(req.body.mot_de_passe, 8)
   })
-  .then(user => {
-    if (req.body.roles) {
-      Role.findAll({
-        where: {
-          nom: {
-            [Op.or]: req.body.roles
+    .then(user => {
+      if (req.body.roles) {
+        Role.findAll({
+          where: {
+            nom: {
+              [Op.or]: req.body.roles
+            }
           }
-        }
-      })
-      .then(roles => {
-        user.setRoles(roles)
-        .then(() => {
-          res.send({ message: "Enregistrement réussi avec succès :)!" });
-        });
-      });
-    } else {
-      // user role = 1
-      user.setRoles([1])
-      .then(() => {
-        res.send({ message: "Utilisateur enregistré avec succès !" });
-      });
-    }
-  })
-  .catch(err => {
-    res.status(500).send({ message: err.message });
-  });
+        })
+          .then(roles => {
+            user.setRoles(roles)
+              .then(() => {
+                res.send({ message: "Enregistrement réussi avec succès :)!" });
+              });
+          });
+      } else {
+        // user role = 1
+        user.setRoles([1])
+          .then(() => {
+            res.send({ message: "Utilisateur enregistré avec succès !" });
+          });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
 };
 
 //Find a user
