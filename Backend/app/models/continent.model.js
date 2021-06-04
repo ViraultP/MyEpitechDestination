@@ -1,18 +1,8 @@
-<<<<<<< HEAD
 module.exports = (sequelize, Sequelize) => {
-    const Continent = sequelize.define("continents", {
-      Continent: {
-        type: Sequelize.STRING
-      },
-    });
-    return Continent;
-=======
-module.exports = (sequelize, Sequelize) => {
-    const Continent = sequelize.define("continents", {
-      Continent: {
-        type: Sequelize.STRING
-      },
-    });
-    return Continent;
->>>>>>> Back-End
-  };
+  const Continent = sequelize.define("continents", {
+    Continent: {
+      type: Sequelize.STRING
+    },
+  });
+  return Continent;
+};

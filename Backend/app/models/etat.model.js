@@ -1,26 +1,12 @@
-<<<<<<< HEAD
 module.exports = (sequelize, Sequelize) => {
-    const Etat = sequelize.define("etats", {
-      id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
-      },
-      Pays: {
-        type: Sequelize.STRING
-      },
-    });
-    return Etat;
-=======
-module.exports = (sequelize, Sequelize) => {
-    const Etat = sequelize.define("etats", {
-      id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
-      },
-      Pays: {
-        type: Sequelize.STRING
-      },
-    });
-    return Etat;
->>>>>>> Back-End
-  };
+  const Etat = sequelize.define("etats", {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true
+    },
+    Pays: {
+      type: Sequelize.STRING
+    },
+  });
+  return Etat;
+};
