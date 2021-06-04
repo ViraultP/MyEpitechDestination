@@ -1,6 +1,10 @@
 const express = require("express");
 const cors = require("cors");
+<<<<<<< HEAD
 const { searchh } = require("./app/routes/search.routes");
+=======
+const {searchh} = require("./app/routes/search.routes");
+>>>>>>> Back-End
 const app = express();
 
 app.use(express.json())

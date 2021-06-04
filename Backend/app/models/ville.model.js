@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 module.exports = (sequelize, Sequelize) => {
     const Ville = sequelize.define("villes", {
         nom: {
@@ -5,4 +6,13 @@ module.exports = (sequelize, Sequelize) => {
         },
     });
     return Ville;
+=======
+module.exports = (sequelize, Sequelize) => {
+    const Ville = sequelize.define("villes", {
+        nom: {
+            type: Sequelize.STRING
+        },
+    });
+    return Ville;
+>>>>>>> Back-End
 };

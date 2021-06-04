@@ -3,7 +3,6 @@
 //var bcrypt = require("bcryptjs");
 
 //constants
-const { article, commentaire } = require("../models");
 const db = require("../models");
 const Article = db.article;
 const Commentaire = db.commentaire;
@@ -40,14 +39,53 @@ exports.uploadImg = multer({
 //Create article
 exports.createArticle = (req, res) => {
     const article = {
+        auteur: req.body.auteur,
         titre: req.body.titre,
         description: req.body.description,
         image: req.file.path,
         universiteId: req.body.universiteId,
     };
     Article.create(article)
+<<<<<<< HEAD
         .then((data) => {
             res.send(data)
+=======
+    .then((data) => {
+        res.send(data)
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+            err.message || "Une erreur s'est produite lors de la création de l'article."
+        })
+    })
+},
+
+// Retrieve article by id with his comments.
+exports.findOneArticle = (req, res) => 
+{
+    const id = req.params.id;
+    Article.findByPk(id, {
+        include: [{
+        model: Categorie,
+        as: 'categories',
+        attributes :["id","nom"],
+        through: {
+            model: categorie_articles,
+            as: 'categorie_articles',
+            attributes: ['articleId', 'categorieId']
+        }
+        }]
+    })
+    .then(article => 
+    {
+        var condition = {articleId: id};
+        Commentaire.findAll({ where: condition })
+        .then(commentaires => 
+        {
+            article.dataValues["commentaires"] = commentaires;
+            res.send(article);
+>>>>>>> Back-End
         })
         .catch(err => {
             res.status(500).send({
@@ -153,7 +191,7 @@ exports.deleteOneArticle = (req, res) => {
 // Create and save comment
 exports.createCommentaire = (req, res) => {
     const commentaire = {
-        email: req.body.email,
+        nom: req.body.nom,
         commentaire: req.body.commentaire,
         articleId: req.body.articleId
     };
@@ -167,12 +205,16 @@ exports.createCommentaire = (req, res) => {
                     res.send(data);
                 })
         })
+<<<<<<< HEAD
         .catch(err => {
             res.status(500).send({
                 message:
                     err.message || "Une erreur s'est produite lors de la création du commentaire."
             })
         })
+=======
+    })
+>>>>>>> Back-End
 },
 
     // Delete comment by id
